@@ -23,4 +23,14 @@ export class CustomerService {
     let body=JSON.stringify(item);
     return this._http.post(this.customer_url,body,{headers:_abc});
 }
+
+
+  Cusrtomer_login(id)
+  {
+    return this._http.get(this.cust_url+id);
+  }
+  getCustomerById(id:number){
+    return this._http.get(this.url+id);
+  }
+
 }

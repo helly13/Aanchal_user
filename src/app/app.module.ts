@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -9,19 +9,28 @@ import {
   MatRippleModule,
   MatFormFieldControl
 } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {SlideshowModule} from 'ng-simple-slideshow';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { SliderModule } from 'angular-image-slider';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SignupComponent,
+    ProductDetailsComponent,
+    CartComponent,
+    CheckoutComponent
 
   ],
   imports: [
@@ -32,8 +41,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    SliderModule,
+    SlideshowModule
+
+   ],
   providers: [],
   bootstrap: [AppComponent]
 })
