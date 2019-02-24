@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
+
   MatRippleModule,
   MatFormFieldControl
 } from '@angular/material';
@@ -15,22 +16,29 @@ import {SlideshowModule} from 'ng-simple-slideshow';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { SignupComponent } from './signup/signup.component';
-
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { SliderModule } from 'angular-image-slider';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { SignupComponent } from './signup/signup.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+
     SignupComponent,
     ProductDetailsComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+   HeaderComponent,
+    FooterComponent,
+    ProductDetailsComponent,
 
   ],
   imports: [
@@ -38,6 +46,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -46,6 +55,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     SlideshowModule
 
    ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

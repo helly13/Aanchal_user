@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../category.service';
+import { CategoryService } from '../services/category.service';
 import { ProductService } from '../product.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { product } from '../classes/product_class';
@@ -59,7 +59,7 @@ export class ProductDetailsComponent implements OnInit {
 
   onclick_Size(item:string)
   {
-    
+
      this.Selected_size=item.toUpperCase();
     this.Colors=[];
     for(this.i=0;this.i<this.Product_Stock.length;this.i++)
@@ -77,16 +77,16 @@ export class ProductDetailsComponent implements OnInit {
     this.Selected_color=item.toUpperCase();
     for(this.i=0;this.i<this.Product_Stock.length;this.i++)
     {
-      
+
       if(this.Product_Stock[this.i].Size_name==this.Selected_size && this.Product_Stock[this.i].Color_name.toUpperCase()==this.Selected_color)
       {
-      
+
         this.Stock_id=this.Product_Stock[this.i].Stock_id;
         console.log(this.Stock_id);
         break;
       }
     }
-    
+
   }
   ngOnInit() {
     this.cat_ser.getAllCategory().subscribe(
@@ -125,7 +125,7 @@ export class ProductDetailsComponent implements OnInit {
       }
     );
 
-    
+
   }
 
 
