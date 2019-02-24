@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../services/category.service';
+import { CategoryService } from '../category.service';
 import { category } from '../classes/category_class';
 import { product } from '../classes/product_class';
 import { ProductService } from '../product.service';
@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
+    console.log("hi");
     this.cat_ser.getAllCategory().subscribe(
       (data:category[])=>
       {

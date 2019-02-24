@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CategoryService} from '../services/category.service'
+import {CategoryService} from '../category.service';
 import { category } from "../classes/category_class";
 
 
@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
         this.Category_list=data;
       }
     );
-  
+
   }
-  
+
 }
