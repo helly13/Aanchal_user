@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../services/category.service';
-import { category } from '../classes/category_class';
+import {CategoryService} from '../services/category.service'
+import { category } from "../classes/category_class";
+
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class HomeComponent implements OnInit {
-
+export class HeaderComponent implements OnInit {
 
   Category_list:category[]=[];
 
@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
         this.Category_list=data;
       }
     );
+  
   }
-
+  
 }
