@@ -11,6 +11,10 @@ import { customer } from '../classes/customer_class';
 import { cart } from '../classes/cart_class';
 import { CartService } from '../cart.service';
 
+export class getCartid {
+  constructor(public Fk_customer_id:number, public Fk_stock_id:number) {}
+}
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -32,8 +36,10 @@ export class ProductDetailsComponent implements OnInit {
   Colors:string[]=[];
   Selected_color:string="";
   Selected_size:string="";
-  Customer_id:number=20;
+  Customer_id:number
+  email_id:string
   qty=0;
+  flag:boolean=true;
   constructor(private cat_ser:CategoryService,private prod_ser:ProductService,private cart_ser:CartService,private stock_ser:StockService,private cust_ser:CustomerService,private _router:Router,private _actroute:ActivatedRoute) { }
 
 
@@ -41,18 +47,43 @@ export class ProductDetailsComponent implements OnInit {
   onclickAddCart()
   {
 
-    this.cust_ser.getCustomerById(this.Customer_id).subscribe(
-      (data:customer)=>
-      {
-        this.cart_ser.InsertIntoCart(new cart(0,this.Stock_id,this.Customer_id,this.qty)).subscribe(
-          (data:any)=>
-          {
-            console.log(data);
-          }
-        );
-      }
-    );
+    if(this.flag==true)
+    {
+      this.cust_ser.Cusrtomer_login(this.email_id).subscribe(
+        (data:any)=>
+        {
+           this.Customer_id=data[0].Customer_id;
 
+
+           this.cart_ser.checkCartId(new getCartid(this.Customer_id,this.Stock_id)).subscribe(
+             (data:any)=>
+             {
+
+              console.log(data);
+
+              if(data.length==1)
+              {
+                alert("Item is already on your cart");
+              }
+
+              else
+              {
+                    this.cart_ser.InsertIntoCart(new cart(this.Stock_id,this.Customer_id,this.qty)).subscribe(
+            (data:any)=>
+            {
+              console.log(data);
+              this._router.navigate(['cart']);
+            }
+          );
+
+              }
+
+             }
+           )
+
+        }
+      );
+    }
 
   }
 
@@ -89,13 +120,9 @@ export class ProductDetailsComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.cat_ser.getAllCategory().subscribe(
-      (data:category[])=>
-      {
-        console.log(data);
-        this.Category_list=data;
-      }
-    );
+
+    this.email_id=localStorage.getItem('email_id');
+
     this._actroute.params.subscribe(
       (x: Params) => {
         this.Product_id = x['id'];
@@ -124,6 +151,18 @@ export class ProductDetailsComponent implements OnInit {
         }
       }
     );
+
+
+    if(this.email_id==null)
+    {
+         this.flag=false;
+    }
+    else
+    {
+
+      this.flag=true;
+    }
+    console.log(this.email_id);
 
 
   }

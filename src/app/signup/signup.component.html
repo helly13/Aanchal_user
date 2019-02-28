@@ -81,6 +81,8 @@
 </div> -->
 
 
+
+
 <div class="jumbotron">
     <div class="container">
         <div class="row">
@@ -90,6 +92,14 @@
                 <br>
                 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" formControlName="text" class="form-control" name="text" [ngClass]="{ 'is-invalid': submitted && f.text.errors }" [(ngModel)]="Name" />
+                    <div *ngIf="submitted && f.text.errors" class="invalid-feedback">
+                        <div *ngIf="f.text.errors.required">Name is required</div>
+                        <div *ngIf="f.text.errors.text">Must be a valid Name</div>
+                    </div>
+                </div>
                     <div class="form-group">
                         <label>Email</label>
                         <input type="text" formControlName="email" class="form-control" name="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [(ngModel)]="Email_id" />
@@ -120,8 +130,28 @@
                     <div class="form-group">
                         <button [disabled]="loading" class="btn btn-primary">Register</button>
                     </div>
+
+
+
                 </form>
             </div>
         </div>
+
+        <div class="col-xl-4 col-lg-5">
+            <div class="user-panel">
+
+              <div class="up-item">
+                <div class="shopping-card">
+
+                </div>
+                <h1><a href="login()">Already Have an Account?</a></h1>
+              </div>
+
+            </div>
+          </div>
+
     </div>
   </div>
+
+
+

@@ -23,11 +23,6 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-=======
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
->>>>>>> 7b4fc22f1a3f0b48da10aa8e042f026de0d0f65c
               "src/styles.css"
             ],
             "scripts": []
@@ -84,11 +79,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-<<<<<<< HEAD
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-=======
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
->>>>>>> 7b4fc22f1a3f0b48da10aa8e042f026de0d0f65c
+
               "src/styles.css"
             ],
             "scripts": [],
@@ -142,4 +133,5 @@
     }
   },
   "defaultProject": "user"
+
 }

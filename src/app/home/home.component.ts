@@ -5,6 +5,7 @@ import { product } from '../classes/product_class';
 import { ProductService } from '../product.service';
 import { IImage } from 'ng-simple-slideshow';
 import { Router } from '@angular/router';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +19,11 @@ export class HomeComponent implements OnInit {
   New_Product_list:product[]=[];
   ImageUrl:IImage[]=[];
   i:number;
+  flag:boolean=true;
   slideIndex:number = 1;
-  constructor(private cat_ser:CategoryService,private prod_ser:ProductService,private _router:Router) { }
+  emil_id:string;
+  name:string;
+  constructor(private cat_ser:CategoryService,private prod_ser:ProductService,private cust_ser:CustomerService, private _router:Router) { }
   onSlideShow(img:number)
   {
     console.log(img);
@@ -39,7 +43,11 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log("hi");
+
+    this.emil_id=localStorage.getItem('email_id');
+
+    console.log(this.emil_id);
+
     this.cat_ser.getAllCategory().subscribe(
       (data:category[])=>
       {

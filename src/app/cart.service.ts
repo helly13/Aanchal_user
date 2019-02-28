@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { cart } from './classes/cart_class';
+import { Order } from './classes/order_class';
 
 
 @Injectable({
@@ -11,6 +12,8 @@ export class CartService {
   constructor(private _http:HttpClient) { }
 
   private cart_url:string='http://localhost:3000/cart/';
+  private cart_id_url:string='http://localhost:3000/cart_id/';
+  private order_url:string='http://localhost:3000/order/';
   getAllCart()
   {
     return this._http.get(this.cart_url);
@@ -18,6 +21,10 @@ export class CartService {
   getCartByCustomerId(id)
   {
     return this._http.get(this.cart_url+id);
+  }
+  getCartTotalByCustomerId(id)
+  {
+    return this._http.get(this.cart_id_url+id);
   }
   removeFromCart(id)
   {
@@ -28,5 +35,26 @@ export class CartService {
     let body=JSON.stringify(item);
     let head1=new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.cart_url,body,{headers:head1});
+  }
+  checkCartId(item)
+  {
+    let body=JSON.stringify(item);
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+    return this._http.post(this.cart_id_url,body,{headers:head1});
+  }
+
+  getOrderById(id:number)
+  {
+    return this._http.get(this.order_url+id);
+  }
+  AddOrder(item:Order)
+  {
+    let body=JSON.stringify(item);
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+    return this._http.post(this.order_url,body,{headers:head1});
+  }
+  RemoveOrder(id:number)
+  {
+    this._http.delete(this.order_url+id);
   }
 }

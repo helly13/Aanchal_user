@@ -30,7 +30,13 @@
                   <p>Quantity</p>
                               <div class="pro-qty"><input type="number" [(ngModel)]="qty"></div>
                           </div>
-                <a (click)="onclickAddCart()" class="site-btn">ADD TO CART</a>
+                <div *ngIf=!flag>
+                    <a href="onsignup()" class="site-btn">ADD TO CART</a>
+                </div>
+                <div *ngIf=flag>
+                    <a (click)="onclickAddCart()" class="site-btn">ADD TO CART</a>
+                </div>
+
                 <div id="accordion" class="accordion-area">
                   <div class="panel">
                     <div class="panel-header" id="headingOne">

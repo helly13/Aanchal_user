@@ -8,7 +8,8 @@ import {
   MatInputModule,
 
   MatRippleModule,
-  MatFormFieldControl
+    MatFormFieldControl,
+    MatIconModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SlideshowModule} from 'ng-simple-slideshow';
@@ -25,6 +26,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
 
+import { LoginComponent } from './login/login.component';
+
 
 
 @NgModule({
@@ -40,6 +43,8 @@ import { SignupComponent } from './signup/signup.component';
     FooterComponent,
     ProductDetailsComponent,
 
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
@@ -49,6 +54,7 @@ import { SignupComponent } from './signup/signup.component';
 
     FormsModule,
     MatFormFieldModule,
+    MatIconModule,
     MatInputModule,
     ReactiveFormsModule,
     SliderModule,

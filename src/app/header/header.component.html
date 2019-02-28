@@ -15,24 +15,57 @@
                 <button><i class="flaticon-search"></i></button>
               </form>
             </div>
+
+
+
+
             <div class="col-xl-4 col-lg-5">
               <div class="user-panel">
+
+
+
                 <div class="up-item">
+
+                    <div *ngIf="!flag" >
                   <i class="flaticon-profile"></i>
-                  <a href="onsignup()">Sign</a> In or <a href="onsignup()">Create Account</a>
+                  <a href="onsignup()">Sign</a> In
                 </div>
+
+                <div *ngIf="flag" >
+                    <i class="flaticon-profile"></i>
+                    <a href="#">Hello</a> &nbsp;{{name}}
+                  </div>
+
+                  </div>
+
+
+
+
                 <div class="up-item">
                   <div class="shopping-card">
                     <i class="flaticon-bag"></i>
-                    <span>0</span>
+                    <span>{{total}}</span>
                   </div>
                   <a href="cart()">Shopping Cart</a>
                 </div>
+                 &nbsp; &nbsp;
+                <div class="up-item" >
+                    <div class="shopping-card">
+
+                    </div>
+                    <a (click)="logout()">logout</a>
+                  </div>
+
               </div>
             </div>
+
+
+
+
+
           </div>
-        </div>
       </div>
+        </div>
       <nav class="main-navbar">
         <div class="container">
           <!-- menu -->

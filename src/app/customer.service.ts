@@ -13,6 +13,15 @@ export class CustomerService {
   constructor(private _http:HttpClient) { }
 
 
+  log_in_customer(item)
+  {
+    let _abc=new HttpHeaders().set('Content-Type','application/json');
+    let body=JSON.stringify(item);
+    console.log(body);
+    return this._http.post(this.cust_url,body,{headers:_abc});
+  }
+
+
   GetAllCustomer()
   {
     return this._http.get(this.url);
