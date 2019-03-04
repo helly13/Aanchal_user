@@ -27,7 +27,14 @@ export class HomeComponent implements OnInit {
   onSlideShow(img:number)
   {
     console.log(img);
-    console.log(this.ImageUrl[img]);
+    console.log(this.ImageUrl[img].caption);
+    for(this.i=0;this.i<this.New_Product_list.length;this.i++)
+    {
+      if(this.New_Product_list[this.i].Product_name==this.ImageUrl[img].caption)
+      {
+        this._router.navigate(['product_details',this.New_Product_list[this.i].Product_id]);    
+      }
+    }
   }
 
   onProductDetails(item:product)
