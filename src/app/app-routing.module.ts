@@ -8,6 +8,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { AppComponent } from './app.component';
+import { PastOrderComponent } from './past-order/past-order.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:"checkout",component:CheckoutComponent},
   {path:"login",component:LoginComponent},
   {path:"header",component:HeaderComponent},
+  {path:"past_order",component:PastOrderComponent},
   {path:"app",component:AppComponent}
 ];
 

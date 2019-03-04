@@ -27,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
 
 import { LoginComponent } from './login/login.component';
+import { PastOrderComponent } from './past-order/past-order.component';
 
 
 
@@ -43,7 +44,9 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     ProductDetailsComponent,
 
-    LoginComponent
+    LoginComponent,
+
+    PastOrderComponent
 
   ],
   imports: [

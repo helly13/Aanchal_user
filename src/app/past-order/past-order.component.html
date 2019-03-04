@@ -1,0 +1,72 @@
+
+<div class="page-top-info">
+  <div class="container">
+    <h4>Your Past Orders</h4>
+    <div class="site-pagination">
+      <a href="">Home</a> /
+      <a href="">Past Orders</a>
+    </div>
+  </div>
+</div>
+<!-- Page info end -->
+
+
+<!-- cart section end -->
+<section class="cart-section spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="cart-table">
+          <h3>Your Past Orders</h3>
+          <div *ngIf=!flag>
+              You bought nothing
+          </div>
+          <div *ngIf=flag>
+
+              <div class="cart-table-warp">
+                  <table>
+                  <thead>
+                    <tr>
+                      <th class="product-th">Product</th>
+                      <th class="quy-th">Quantity</th>
+                      <th class="size-th">Size</th>
+                      <th class="size-th">Color</th>
+                      <th class="total-th">Price</th>
+                      <th class="total-th"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of bill_arr">
+                      <td class="product-col">
+                        <img src="http://localhost:3000/images/Product_img/{{item.Product_image}}" alt="">
+                        <div class="pc-title">
+                          <h4>{{item.Product_name}}</h4>
+                          <p>{{item.Product_price}}</p>
+                        </div>
+                      </td>
+                      <td class="quy-col">
+                        <div class="quantity">
+                                      <div class="pro-qty">
+                            <input type="text" value="{{item.Quantity}}">
+                          </div>
+                                  </div>
+                      </td>
+                      <td class="size-col"><h4>{{item.Size_name}}</h4></td>
+                      <td class="size-col"><h4>{{item.Color_name}}</h4></td>
+                      <td class="total-col"><h4>{{item.Product_price}}</h4></td>
+                          &nbsp; &nbsp;
+                      <td class="total-col"><button>Bill Details</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+
+          </div>
+
+        </div>
+      </div >
+
+
+    </div>
+  </div>
+</section>

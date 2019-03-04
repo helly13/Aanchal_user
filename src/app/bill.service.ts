@@ -21,6 +21,13 @@ addBillDetails(item){
   let body=JSON.stringify(item);
   return this._http.post(this.bill_details,body,{headers:_abc});
 }
-
+getBillByCustomer_id(id:number)
+{
+  return this._http.get(this.bill_url+id);
+}
+getBillDetialsByCustomerId(id:number)
+{
+  return this._http.get(this.bill_details+id);
+}
 
 }

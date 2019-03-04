@@ -67,13 +67,14 @@ export class LoginComponent implements OnInit {
     else
     {
       this.cust_ser.log_in_customer(new login_customer(this.Email_id,this.Password)).subscribe(
-        (data:any)=>
+        (data:any[])=>
         {
           console.log(data);
           if(data.length==1)
           {
                this.email_id1=data[0].Email_id;
               localStorage.setItem('email_id',this.email_id1);
+              localStorage.setItem('Customer_id',data[0].Customer_id+"");
               alert('Success');
               this._router.navigate(['']);
 
