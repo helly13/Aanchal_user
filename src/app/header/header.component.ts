@@ -75,4 +75,9 @@ export class HeaderComponent implements OnInit {
     console.log(this.email_id);
     this._router.navigate([""]);
   }
+
+  myaccount()
+  {
+    this._router.navigate(['myaccount',this.email_id]);
+  }
 }

@@ -123,7 +123,7 @@ export class ProductDetailsComponent implements OnInit {
 
     this.email_id=localStorage.getItem('email_id');
 
-    this._actroute.params.subscribe(
+  this._actroute.params.subscribe(
       (x: Params) => {
         this.Product_id = x['id'];
       }

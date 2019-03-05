@@ -6,7 +6,8 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
-
+MatListModule,
+MatCardModule,
   MatRippleModule,
     MatFormFieldControl,
     MatIconModule
@@ -27,6 +28,9 @@ import { FooterComponent } from './footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
 
 import { LoginComponent } from './login/login.component';
+import { MyaccountComponent } from './myaccount/myaccount.component';
+import { MyaccComponent } from './myacc/myacc.component';
+import { AddressComponent } from './address/address.component';
 
 
 
@@ -43,7 +47,13 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     ProductDetailsComponent,
 
-    LoginComponent
+    LoginComponent,
+
+    MyaccountComponent,
+
+    MyaccComponent,
+
+    AddressComponent
 
   ],
   imports: [
@@ -51,7 +61,9 @@ import { LoginComponent } from './login/login.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-
+    MatButtonModule,
+    MatCardModule,
+    MatListModule,
     FormsModule,
     MatFormFieldModule,
     MatIconModule,
