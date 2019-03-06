@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { AppComponent } from './app.component';
 import { PastOrderComponent } from './past-order/past-order.component';
+import { CategoryComponent } from './category/category.component';
 
 const routes: Routes = [
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"header",component:HeaderComponent},
   {path:"past_order",component:PastOrderComponent},
+  {path:"category",component:CategoryComponent},
   {path:"app",component:AppComponent}
 ];
 
