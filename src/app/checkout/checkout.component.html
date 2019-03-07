@@ -9,50 +9,45 @@
               <p>*Billing Information</p>
             </div>
             <div class="col-md-5">
-              <div class="cf-radio-btns address-rb">
-                <div class="cfr-item">
-                  <input type="radio" name="pm" id="one" [(ngModel)]="add">
-                  <label for="one">Use my regular address</label>
-                </div>
-                <div class="cfr-item">
-                  <input type="radio" name="pm" id="two" [(ngModel)]="add">
-                  <label for="two">Use a different address</label>
-                </div>
-              </div>
+
+
+                    <mat-radio-group
+                    class="example-radio-group"
+                    [(ngModel)]="add"
+                    name="add"
+
+                  >
+                  <mat-radio-button    class="example-radio-button"
+                  *ngFor="let item of add_arr"
+                  [value]="item"
+                  (change)="handleChange(item)">
+                    {{item}}  &nbsp;
+                  </mat-radio-button>
+
+                  </mat-radio-group>
+                               </div>
             </div>
-          </div>
+<br>
+
           <div class="row address-inputs">
             <div class="col-md-12">
-              <input type="text" placeholder="Address">
-              <input type="text" placeholder="Address line 2">
-              <input type="text" placeholder="Phone no.">
+              <input type="text" placeholder="Address" name="address_line" [disabled]="!add_flag"  [(ngModel)]="address_line">
+
+              <input type="text" placeholder="Phone no." name="mobile" [disabled]="!add_flag" [(ngModel)]="number">
+              <br>
+              <mat-form-field>
+                  <mat-select matNativeControl required [disabled]="!add_flag"  [(ngModel)]="city"
+                  name="city">
+                    <mat-option value="Ahmedabad">Ahmedabad</mat-option>
+                    <mat-option value="Surat">Surat</mat-option>
+                    <mat-option value="Rajkot">Rajkot</mat-option>
+
+                  </mat-select>
+                </mat-form-field>
             </div>
           </div>
-          <div class="cf-title">Delievery Info</div>
-          <div class="row shipping-btns">
-            <div class="col-6">
-              <h4>Standard</h4>
-            </div>
-            <div class="col-6">
-              <div class="cf-radio-btns">
-                <div class="cfr-item">
-                  <input type="radio" name="shipping" id="ship-1">
-                  <label for="ship-1">Free</label>
-                </div>
-              </div>
-            </div>
-            <div class="col-6">
-              <h4>Next day delievery  </h4>
-            </div>
-            <div class="col-6">
-              <div class="cf-radio-btns">
-                <div class="cfr-item">
-                  <input type="radio" name="shipping" id="ship-2">
-                  <label for="ship-2">$3.45</label>
-                </div>
-              </div>
-            </div>
-          </div>
+
+
           <div class="cf-title">Payment Note</div>
           <ul class="payment-list">
 
@@ -67,7 +62,7 @@
           <ul class="product-list">
             <li>
               <div *ngFor="let item of check_out">
-                  <div class="pl-thumb"><img src="../../assets/img/cart/1.jpg" alt=""></div>
+                  <div class="pl-thumb"> <img src="http://localhost:3000/images/Product_img/{{item.Product_image}}" alt=""></div>
               <h6>{{item.Product_name}}</h6>
 
               <p>{{item.Color_name}}</p>
@@ -84,6 +79,6 @@
           </ul>
         </div>
       </div>
-    </div>
+</div>
   </div>
 </section>

@@ -38,7 +38,9 @@ export class ProductDetailsComponent implements OnInit {
   Selected_size:string="";
   Customer_id:number
   email_id:string
+  j:number;
   qty=0;
+  size_flag:number=0;
   flag:boolean=true;
   constructor(private cat_ser:CategoryService,private prod_ser:ProductService,private cart_ser:CartService,private stock_ser:StockService,private cust_ser:CustomerService,private _router:Router,private _actroute:ActivatedRoute) { }
 
@@ -146,8 +148,20 @@ export class ProductDetailsComponent implements OnInit {
         console.log(data[0].Size_name.toLowerCase());
         for(this.i=0;this.i<data.length;this.i++)
         {
-          this.Sizes.push(data[this.i].Size_name.toLowerCase());
-          this.Colors.push(data[this.i].Color_name.toLowerCase());
+          this.size_flag=0;
+          for(this.j=0;this.j<this.Sizes.length;this.j++)
+          {
+            if(this.Sizes[this.j]==data[this.i].Size_name.toLowerCase())
+            {
+              this.size_flag=1;
+              break;
+            }
+          }
+          if(this.size_flag==0)
+          {
+            this.Sizes.push(data[this.i].Size_name.toLowerCase());
+          }
+            this.Colors.push(data[this.i].Color_name.toLowerCase());
         }
       }
     );

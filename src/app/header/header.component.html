@@ -9,6 +9,11 @@
 
               </a>
             </div>
+
+
+
+
+
             <div class="col-xl-6 col-lg-5">
               <form class="header-search-form">
                 <input type="text" placeholder="Search Product ....">
@@ -34,9 +39,16 @@
                 <div *ngIf="flag" >
                     <i class="flaticon-profile"></i>
                     <a (click)="myaccount()">Hello</a> &nbsp;{{name}}
-                  </div>
+
+
 
                   </div>
+
+
+
+
+                  </div>
+
 
 
 
@@ -53,7 +65,9 @@
                     <div class="shopping-card">
 
                     </div>
+
                     <a (click)="logout()">logout</a>
+
                   </div>
 
               </div>
@@ -72,6 +86,18 @@
           <ul class="main-menu">
             <li><a href="#">Home</a></li>
             <li *ngFor="let item of Category_list"><a href="#">{{item.Category_name}}</a></li>
+
+              <li *ngIf="flag"><a href="#">My Profile</a>
+                <ul class="sub-menu">
+
+                  <mat-list-item ><mat-icon>person</mat-icon><li><a href="myprofile()">My Account</a></li></mat-list-item>
+                  <li><a href="past_order()">Past Order</a></li>
+                  <li><a href="wishlist()">Wish List</a></li>
+                  <li><a href="./checkout.html">Logout</a></li>
+
+                </ul>
+              </li>
+
           </ul>
         </div>
       </nav>

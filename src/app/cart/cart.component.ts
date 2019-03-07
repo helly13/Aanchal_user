@@ -17,7 +17,8 @@ export class TableDetais {
     public Color_name: string,
     public Size_name: string,
     public Quantity: number,
-    public Product_price: number
+    public Product_price: number,
+    public Product_image:string
   ) {}
 }
 
@@ -68,12 +69,11 @@ export class CartComponent implements OnInit {
         this.Customer_id = data[0].Customer_id;
         this.flag = true;
 
-        this.cart_ser
-          .getCartByCustomerId(this.Customer_id)
-          .subscribe((data: any[]) => {
+        this.cart_ser.getCartByCustomerId(this.Customer_id).subscribe((data: any[]) => {
             console.log(data);
             if (data.length >= 1) {
               this.Cart_details = data;
+              console.log(this.Cart_details);
               for (this.i = 0; this.i < this.Cart_details.length; this.i++) {
                 this.Total += this.Cart_details[this.i].Product_price;
               }

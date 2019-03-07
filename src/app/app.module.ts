@@ -10,7 +10,11 @@ MatListModule,
 MatCardModule,
   MatRippleModule,
     MatFormFieldControl,
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SlideshowModule} from 'ng-simple-slideshow';
@@ -31,6 +35,8 @@ import { LoginComponent } from './login/login.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { MyaccComponent } from './myacc/myacc.component';
 import { AddressComponent } from './address/address.component';
+import { PastOrderComponent } from './past-order/past-order.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 
@@ -53,7 +59,9 @@ import { AddressComponent } from './address/address.component';
 
     MyaccComponent,
 
-    AddressComponent
+    AddressComponent,
+    PastOrderComponent,
+    WishlistComponent
 
   ],
   imports: [
@@ -70,7 +78,11 @@ import { AddressComponent } from './address/address.component';
     MatInputModule,
     ReactiveFormsModule,
     SliderModule,
-    SlideshowModule
+    SlideshowModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule
 
    ],
 

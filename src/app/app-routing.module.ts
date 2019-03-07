@@ -9,6 +9,9 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { AppComponent } from './app.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
+import { PastOrderComponent } from './past-order/past-order.component';
+import { MyaccComponent } from './myacc/myacc.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
 
@@ -20,7 +23,11 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"header",component:HeaderComponent},
   {path:"app",component:AppComponent},
-  {path:"myaccount/:id",component:MyaccountComponent}
+
+  {path:"past_order",component:PastOrderComponent},
+  {path:"app",component:AppComponent},
+  {path:"myprofile",component:MyaccComponent},
+  {path:"wishlist",component:WishlistComponent}
 ];
 
 @NgModule({

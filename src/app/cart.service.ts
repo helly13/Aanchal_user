@@ -14,6 +14,8 @@ export class CartService {
   private cart_url:string='http://localhost:3000/cart/';
   private cart_id_url:string='http://localhost:3000/cart_id/';
   private order_url:string='http://localhost:3000/order/';
+  private wishlist_url:string='http://localhost:3000/wishlist/';
+  private wishlist_customer:string='http://localhost:3000/wishlist_customerid/';
   getAllCart()
   {
     return this._http.get(this.cart_url);
@@ -21,6 +23,11 @@ export class CartService {
   getCartByCustomerId(id)
   {
     return this._http.get(this.cart_url+id);
+  }
+
+  getWishlistByCustomerId(id)
+  {
+    return this._http.get(this.wishlist_customer+id);
   }
   getCartTotalByCustomerId(id)
   {
@@ -57,4 +64,19 @@ export class CartService {
   {
     this._http.delete(this.order_url+id);
   }
+
+  InsertIntoWishlist(item)
+  {
+    let body=JSON.stringify(item);
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+    return this._http.post(this.wishlist_url,body,{headers:head1});
+  }
+
+  checkWishlistId(item)
+  {
+    let body=JSON.stringify(item);
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+    return this._http.post(this.wishlist_customer,body,{headers:head1});
+  }
+
 }

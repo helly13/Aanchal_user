@@ -41,5 +41,20 @@ export class CustomerService {
   getCustomerById(id:number){
     return this._http.get(this.url+id);
   }
+  updateCustomer(item,id)
+  {
+    let _header=new HttpHeaders().set('Content-Type','application/json');
+    let body=JSON.stringify(item);
+    console.log(body);
+    return this._http.put(this.url+id,body,{headers:_header});
+  }
+
+  updateCustomerAlterNativeAddress(item,id)
+  {
+    let _header=new HttpHeaders().set('Content-Type','application/json');
+    let body=JSON.stringify(item);
+    console.log(body);
+    return this._http.put(this.customer_url+id,body,{headers:_header});
+  }
 
 }

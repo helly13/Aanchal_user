@@ -15,6 +15,8 @@ import { bill } from "../classes/bill_class";
 import { AnimateTimings } from "@angular/animations";
 import { bill_details } from "../classes/bill_details_class";
 import { Order } from '../classes/order_class';
+import { elementStart } from '@angular/core/src/render3';
+import { flatten } from '@angular/router/src/utils/collection';
 export class checkout {
   constructor(
     public Product_id: number,
@@ -24,12 +26,17 @@ export class checkout {
     public Fk_stock_id: number,
     public Product_name: string,
     public Product_price: number,
+    public Product_image:string,
     public Quantity: number,
     public Size_name: string
   ) {}
 }
 export class updateStock{
   constructor(public Quantity:number,public Stock_id:number,){}
+}
+
+export class AlternativeAddress{
+  constructor(public Alter_Mobile_no:string,public Alter_Address:string,public City:string){}
 }
 
 @Component({
@@ -41,9 +48,9 @@ export class CheckoutComponent implements OnInit {
   email_id: string;
   bill_id: number;
   add: string;
-
+flag:boolean=true;
   Customer_id: number;
-
+  cart_id:number;
   check_out: checkout[];
   bill_details1: bill_details[] = [];
   updated_qty:number;
@@ -54,10 +61,17 @@ export class CheckoutComponent implements OnInit {
   qty: number;
   sid:number;
   j:number=0;
+  cnt:number=0;
+  Address:string;
+  number:string;
+  city:string;
+  add_flag:boolean=false;
   cart_qty:number[]=[];
   stock_id_arr:updateStock[]=[];
   amount: number;
+address_line:string="";
   k:number=0;
+ add_arr:string[]=["Use Current Address","Use Different Address"];
   c_qty:number;
   constructor(
     private bill_ser: BillService,
@@ -71,16 +85,19 @@ export class CheckoutComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.flag=false;
     this.email_id = localStorage.getItem("email_id");
     console.log(this.email_id);
     this.cust_ser.Cusrtomer_login(this.email_id).subscribe((data: any) => {
+      console.log(data);
       this.Customer_id = data[0].Customer_id;
+      this.address_line=data[0].Address;
+      this.number=data[0].Mobile_no;
+      this.city=data[0].City;
+      console.log(this.Address);
       console.log(this.Customer_id);
-      this.cart_ser
-        .getCartByCustomerId(this.Customer_id)
-        .subscribe((data: any) => {
+      this.cart_ser.getCartByCustomerId(this.Customer_id).subscribe((data: any) => {
           console.log(data);
-
           this.check_out = data;
           console.log(this.check_out);
           for (this.i = 0; this.i < data.length; this.i++) {
@@ -91,87 +108,107 @@ export class CheckoutComponent implements OnInit {
   }
 
   oncheckout() {
-
-this.cart_ser.getCartByCustomerId(this.Customer_id).subscribe(
-  (data:any)=>{
-    for(this.i=0;this.i<data.length;this.i++)
+    console.log(this.add);
+    if(this.add==null)
     {
-      this.cart_qty.push(data[this.i].Quantity);
+      alert('Please select Address Details');
+    }
+    else
+    {
+      if(this.add=="Use Current Address")
+      {
 
-      this.stock_id_arr.push(new updateStock(data[this.i].Quantity,data[this.i].Fk_stock_id));
-      this.cart_ser.AddOrder(new Order(data[this.i].Fk_stock_id,this.Customer_id,data[this.i].Quantity,"placed")).subscribe(
-        (data:any)=>{
-          console.log(data);
+
+        if(this.address_line=="")
+          {
+          alert('Add Adress');
+          this.flag=false;
+
         }
-      )
-          }
-    console.log(this.stock_id_arr);
-    console.log(this.cart_qty);
-    for(this.j=0;this.j<this.stock_id_arr.length;this.j++)
-    {
-
-      this.sid=this.stock_id_arr[this.j].Stock_id;
-      this.c_qty=this.stock_id_arr[this.j].Quantity;
-      this.stock_ser.getStockById(this.sid).subscribe(
-        (data:any)=>{
+        else
+        {
+          this.flag=true;
+        }
+      }
 
 
-          console.log(this.i);
-            console.log(this.k)
-            console.log(this.c_qty);
-            this.updated_qty=data[0].Quantity-this.c_qty;
-            this.sid=data[0].Stock_id;
-          this.stock_ser.updateStock(new updateStock(this.updated_qty,this.sid)).subscribe(
+
+      else
+      {
+        this.add_flag=true;
+        console.log(this.address_line);
+        if(this.address_line=="")
+        {
+          alert("Add Your Alternative Address");
+          this.flag=false;
+        }
+        else
+        {
+          this.cust_ser.updateCustomerAlterNativeAddress(new AlternativeAddress(this.number,this.address_line,this.city),this.Customer_id).subscribe(
             (data:any)=>{
               console.log(data);
             }
           )
-        }
-      )
+          this.flag=true;
 
+        }
+
+
+      }
+    }
+
+  if(this.flag==true)
+    {
+      console.log(this.check_out);
+      for(this.i=0;this.i<this.check_out.length;this.i++)
+      {
+          this.cart_id=this.check_out[this.i].Cart_id;
+          this.cart_ser.AddOrder(new Order(this.check_out[this.i].Fk_stock_id,this.check_out[this.i].Fk_customer_id,this.check_out[this.i].Quantity,"Order Placed")).subscribe(
+          (data:any)=>{
+            console.log(data);
+            this.cnt++;
+            console.log(this.cnt);
+            if(this.cnt==this.check_out.length)
+            {
+              for(this.j=0;this.j<this.cnt;this.j++)
+              {
+                this.cart_ser.removeFromCart(this.check_out[this.j].Cart_id).subscribe(
+                  (data:any)=>
+                  {
+                    console.log(data+"remove from cart");
+                  }
+                );
+              }
+
+              this._router.navigate(['']);
+            }
+          }
+        );
+      }
+
+    }
 
    }
 
-  }
-)
+   handleChange(item)
+   {
 
+      if(item=="Use Different Address")
+      {
+        this.add_flag=true;
+        this.address_line="";
+        this.number="";
+      }
+      else
+      {
+        this.add_flag=false;
+        this.cust_ser.Cusrtomer_login(this.email_id).subscribe(
+          (data:any)=>{
+            this.address_line=data[0].Address;
+            this.number=data[0].Mobile_no;
+          }
+        )
+      }
 
-
-  //   this.bill_ser
-  //     .addBill(new bill(" ", this.total, this.Customer_id))
-  //     .subscribe((data: any) => {
-  //       console.log(data);
-
-  //       this.bill_id = data.insertId;
-
-  //       this.cart_ser
-  //         .getCartByCustomerId(this.Customer_id)
-  //         .subscribe((data: any) => {
-  //           console.log(data);
-
-  //           for (this.i = 0; this.i < data.length; this.i++) {
-  //             this.amount = data[this.i].Product_price;
-  //             this.stock_id = data[this.i].Fk_stock_id;
-  //             this.qty = data[this.i].Quantity;
-  //             this.bill_details1.push(
-  //               new bill_details(
-  //                 this.bill_id,
-  //                 this.Customer_id,
-  //                 this.stock_id,
-  //                 this.qty,
-  //                 this.amount
-  //               )
-  //             );
-  //             console.log(this.bill_details1);
-  //           }
-
-  //           this.bill_ser
-  //             .addBillDetails(this.bill_details1)
-  //             .subscribe((data: any) => {
-  //               console.log(data);
-  //               this.bill_details1 = [];
-  //             });
-  //         });
-  //     });
    }
 }

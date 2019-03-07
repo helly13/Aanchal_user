@@ -1,0 +1,42 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#">Clear Wishlist</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <div>
+
+    </div>
+    <tr *ngFor="let item of Product_arr">
+      <td>
+        <div class="product-item"><a class="product-thumb" href="shop-single.html"><img src="img/shop/cart/01.jpg" alt="Product"></a>
+          <div class="product-info">
+            <h4 class="product-title">{{item.Product_name}}</h4>
+            <div class="text-lg text-medium text-muted">{{item.Product_price}}</div>
+            <div>Availability:
+              <div class="d-inline text-success">In Stock</div>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="icon-cross"></i></a></td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="product-item"><a class="product-thumb" href="shop-single.html"><img src="img/shop/cart/03.jpg" alt="Product"></a>
+          <div class="product-info">
+            <h4 class="product-title"><a href="shop-single.html">Cole Haan Crossbody</a></h4>
+            <div class="text-lg text-medium text-muted">$200.00</div>
+            <div>Availability:
+              <div class="d-inline text-success">In Stock</div>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="icon-cross"></i></a></td>
+    </tr>
+  </tbody>
+</table>

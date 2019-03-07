@@ -1,3 +1,5 @@
+<br>
+<br>
 <div class="container padding-bottom-3x mb-2">
   <div class="row">
     <div class="col-lg-4">
@@ -13,11 +15,11 @@
         </div>
       </aside>
 
-      <mat-list>
+      <!-- <mat-list>
           <mat-list-item ><mat-icon>shopping_basket</mat-icon><a href="past_order">&nbsp;&nbsp;Orders</a></mat-list-item>
           <mat-list-item><mat-icon>person</mat-icon><a href="my_profile">&nbsp;&nbsp;My Profile</a></mat-list-item>
           <mat-list-item><mat-icon>favorite</mat-icon><a href="#">&nbsp;&nbsp;Wishlist</a></mat-list-item>
-        </mat-list>
+        </mat-list> -->
 
       <!-- <nav class="list-group"><a class="list-group-item with-badge" href="account-orders.html"><i
             class="icon-bag"></i>Orders<span class="badge badge-primary badge-pill">6</span></a><a
@@ -31,51 +33,93 @@
     <div class="col-lg-8">
       <div class="padding-top-2x mt-2 hidden-lg-up"></div>
       <form class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="form-group">
             <label for="account-fn">First Name</label>
-            <input class="form-control" type="text" value="" placeholder="First name" required="">
+            <input class="form-control" [disabled]="!flag" type="text" value="" name="Name" [(ngModel)]="Name" placeholder="First name" required="">
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="account-ln">Last Name</label>
-            <input class="form-control" type="text" value="" required placeholder="Last Name">
-          </div>
-        </div>
-        <div class="col-md-6">
+               <div class="col-md-6">
           <div class="form-group">
             <label for="account-email">E-mail Address</label>
-            <input class="form-control" type="email" value="" placeholder="Email">
+            <input class="form-control" [disabled]="!flag" type="email" name="Email_id" value="" placeholder="Email" [(ngModel)]="Email_id">
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="account-phone">Phone Number</label>
-            <input class="form-control" type="text" value="" required placeholder="9099036265">
+            <input class="form-control" type="text" [disabled]="!flag"  value="" name="Number" [(ngModel)]="Number" required placeholder="9099036265">
           </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <h5><label for="account-pass">Address</label></h5>
+            <textarea rows="12" cols="2" name="Address" [(ngModel)]="Address" [disabled]="!flag" ></textarea>
+          </div>
+        </div>
+
+
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="account-phone">Date Of Birth</label>
+
+            <input matInput  [min]="minDate" [max]="maxDate" [disabled]="!flag"  [matDatepicker]="dob" name="DOB" [(ngModel)]="DOB" placeholder="Date of birth" >
+            <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+            <mat-datepicker #dob></mat-datepicker>
+              </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-select matNativeControl required [disabled]="!flag"  [(ngModel)]="city"
+                    name="city">
+                      <mat-option value="Ahmedabad">Ahmedabad</mat-option>
+                      <mat-option value="Surat">Surat</mat-option>
+                      <mat-option value="Rajkot">Rajkot</mat-option>
+
+                    </mat-select>
+                  </mat-form-field>
+              </div>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="account-pass">New Password</label>
-            <input class="form-control" type="password" id="account-pass">
-          </div>
+            <div class="form-group">
+                <mat-radio-group
+                class="example-radio-group"
+                [(ngModel)]="Gender"
+                name="gender"
+                [disabled]="!flag"
+              >
+              <mat-radio-button    class="example-radio-button"
+              *ngFor="let item of Gender_arr"
+              [value]="item">
+                {{item}}  &nbsp;
+              </mat-radio-button>
+
+              </mat-radio-group>
+            </div>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="account-confirm-pass">Confirm Password</label>
-            <input class="form-control" type="password" id="account-confirm-pass">
-          </div>
-        </div>
-        <div class="col-12">
           <hr class="mt-2 mb-3">
-          <div style="margin-left:800px;">
+          <div style="margin-left:300px;">
             <button class="btn btn-primary margin-right-none" type="button" data-toast="" data-toast-position="topRight"
               data-toast-type="success" data-toast-icon="icon-circle-check" data-toast-title="Success!"
-              data-toast-message="Your profile updated successfuly.">Update Profile</button>
-          </div>
+              data-toast-message="Your profile updated successfuly." [disabled]="flag" (click)="onupdate()">Update Profile</button>
+           </div>
+        </div>
+        <div class="col-md-6">
+          <hr class="mt-2 mb-3">
+          <div style="margin-left:300px;">
+              <button class="btn btn-primary margin-right-none" type="button" data-toast="" data-toast-position="topRight"
+                data-toast-type="success" data-toast-icon="icon-circle-check" data-toast-title="Success!"
+                data-toast-message="Your profile updated successfuly." [disabled]="!flag"  (click)="onsubmit()">Save Changes</button>
+            </div>
+
         </div>
       </form>
     </div>
   </div>
 </div>
+<br>
+<br>

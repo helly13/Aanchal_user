@@ -78,6 +78,6 @@ export class HeaderComponent implements OnInit {
 
   myaccount()
   {
-    this._router.navigate(['myaccount',this.email_id]);
+    this._router.navigate(['myprofile']);
   }
 }
