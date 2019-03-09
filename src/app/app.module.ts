@@ -37,6 +37,7 @@ import { MyaccComponent } from './myacc/myacc.component';
 import { AddressComponent } from './address/address.component';
 import { PastOrderComponent } from './past-order/past-order.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { CategoryComponent } from './category/category.component';
 
 
 
@@ -61,7 +62,9 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 
     AddressComponent,
     PastOrderComponent,
-    WishlistComponent
+    WishlistComponent,
+    PastOrderComponent,
+    CategoryComponent
 
   ],
   imports: [

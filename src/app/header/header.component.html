@@ -66,7 +66,9 @@
 
                     </div>
 
-                    <a (click)="logout()">logout</a>
+                    <a *ngIf="flag" (click)="logout()">logout</a>
+
+                    &nbsp;&nbsp;
 
                   </div>
 
@@ -85,7 +87,10 @@
           <!-- menu -->
           <ul class="main-menu">
             <li><a href="#">Home</a></li>
-            <li *ngFor="let item of Category_list"><a href="#">{{item.Category_name}}</a></li>
+
+
+            <li><a href="category">Category </a></li>
+            <!-- <li *ngFor="let item of Category_list"><a href="#">{{item.Category_name}}</a></li> -->
 
               <li *ngIf="flag"><a href="#">My Profile</a>
                 <ul class="sub-menu">

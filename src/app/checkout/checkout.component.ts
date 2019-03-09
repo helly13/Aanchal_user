@@ -101,7 +101,7 @@ address_line:string="";
           this.check_out = data;
           console.log(this.check_out);
           for (this.i = 0; this.i < data.length; this.i++) {
-            this.total += data[this.i].Product_price;
+            this.total += data[this.i].Product_price*data[this.i].Quantity;
           }
         });
     });

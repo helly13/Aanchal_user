@@ -42,13 +42,13 @@ Product_arr:product[]=[];
             {
                 this.Product_id_arr.push(data[this.i].Fk_Product_id);
                 this.prod_ser.getProductById(data[this.i].Fk_Product_id).subscribe(
-                      (data:any)=>
+                      (data:product[])=>
                        {
                          console.log(data);
-                         this.Product_arr.push(data);
-
+                         this.Product_arr.push(data[0]);
+                        console.log(this.Product_arr);
                    }
-                )
+                );
             }
           }
         )
@@ -56,7 +56,7 @@ Product_arr:product[]=[];
       }
     )
 
-      console.log(this.Product_arr);
+      //console.log(this.Product_arr);
 
   }
 

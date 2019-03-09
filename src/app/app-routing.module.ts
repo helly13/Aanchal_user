@@ -12,6 +12,7 @@ import { MyaccountComponent } from './myaccount/myaccount.component';
 import { PastOrderComponent } from './past-order/past-order.component';
 import { MyaccComponent } from './myacc/myacc.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { CategoryComponent } from './category/category.component';
 
 const routes: Routes = [
 
@@ -27,7 +28,9 @@ const routes: Routes = [
   {path:"past_order",component:PastOrderComponent},
   {path:"app",component:AppComponent},
   {path:"myprofile",component:MyaccComponent},
-  {path:"wishlist",component:WishlistComponent}
+  {path:"wishlist",component:WishlistComponent},
+  {path:"category",component:CategoryComponent},
+  {path:"app",component:AppComponent}
 ];
 
 @NgModule({

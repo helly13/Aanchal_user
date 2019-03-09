@@ -75,7 +75,7 @@ export class CartComponent implements OnInit {
               this.Cart_details = data;
               console.log(this.Cart_details);
               for (this.i = 0; this.i < this.Cart_details.length; this.i++) {
-                this.Total += this.Cart_details[this.i].Product_price;
+                this.Total += this.Cart_details[this.i].Product_price*this.Cart_details[this.i].Quantity;
               }
             } else {
               this.flag = false;
