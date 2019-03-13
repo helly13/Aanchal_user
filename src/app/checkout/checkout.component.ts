@@ -107,6 +107,11 @@ address_line:string="";
     });
   }
 
+  onwishclick()
+  {
+    window.open("http://localhost:8085/","_self");
+  }
+
   oncheckout() {
     console.log(this.add);
     if(this.add==null)

@@ -1,10 +1,30 @@
-/* *::after,
+*::after,
 *::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box
 }
 html,
+body {
+  height: calc(100% + 1px)
+}
+body {
+  font: 100% 'Arimo', sans-serif;
+}
+.filter-wrapper,
+.keyword-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.filter-wrapper {
+  min-height: 100%;
+  flex-flow: column wrap;;
+  position: relative
+}
+.keyword-wrapper {
+  width: 100%;
+  position: relative;
+}
 #keyword {
   border: 1px solid #ccc;
   padding: 10px;
@@ -27,7 +47,43 @@ html,
 #keyword-button:hover {
   color: #ccc
 }
-
+.filter-select {
+  width: 50%;
+  list-style: none;
+  font-size: 1.1em;
+  color: rgb(105, 105, 105);
+  border: 1px solid #ccc;
+  border-top: none;
+  /*so things don't jump around*/
+  position: absolute;
+  left: 25%;
+  top: calc(50% + 25px);
+  max-height: calc(50% - 15px);
+  overflow-y: auto;
+  background: #fff
+}
+.filter-select-list img {
+  margin-right: 30px;
+}
+.tags {
+  font-size: 12px;
+  font-style: italic;
+  color: #c6c6c6;
+  margin-right: 10px;
+  position: relative;
+  top: -10px;
+}
+.filter-select-list:hover .tags {
+  color: #fff;
+}
+.filter-select-list {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.artist-name {
+  display: inline-block;
+  position: absolute;
+}
 .filter-select-list:hover {
   background:  #C0C0C0;
   color: #fff
@@ -65,4 +121,4 @@ html,
   #keyword-button {
     right: 3.5%
   }
-} */
+}

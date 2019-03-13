@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { product } from "../classes/product_class";
 import { CategoryService } from "../category.service";
 import { ProductService } from "../product.service";
@@ -6,23 +6,16 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { category } from "../classes/category_class";
 import { CartService } from "../cart.service";
 import { CustomerService } from '../customer.service';
-
-import { wishlist } from '../classes/wish_list_class';
-export class wishlistid{
-  constructor(
-    public Fk_Product_id:number,
-    public Fk_Customer_id:number,
-      ){ }
-};
+//import { } from '@types/googlemaps';
 
 @Component({
-  selector: 'app-wishlist',
-  templateUrl: './wishlist.component.html',
-  styleUrls: ['./wishlist.component.css']
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.css']
 })
-
-export class WishlistComponent implements OnInit {
-
+export class ContactComponent implements OnInit {
+  @ViewChild('gmap') gmapElement: any;
+  //map: google.maps.Map;
   Customer_id:number;
   Product_id:number;
   Email_id:string;
@@ -31,6 +24,7 @@ export class WishlistComponent implements OnInit {
   k:number;
   Product_id_arr:number[]=[];
 Product_arr:product[]=[];
+
   constructor(
     private cart_ser: CartService,
     private _router: Router,
@@ -38,31 +32,15 @@ Product_arr:product[]=[];
     private prod_ser:ProductService
   ) { }
 
-  add_cart(item)
-  {
-    this._router.navigate(['product_details',item.Product_id]);
-  }
-  onProduct_Delete(item)
-  {
-    console.log(item);
-    this.cart_ser.getWishlistByCustomerIdAndProduct(new wishlistid(item.Product_id,this.Customer_id)).subscribe(
-      (data:any)=>{
-        console.log(data);
-        this.id=data[0].Wish_list_id;
-
-        this.cart_ser.removeFromWishlist(this.id).subscribe(
-          (data:any)=>{
-            console.log(data);
-            this._router.navigate(['']);
-
-          }
-        )
-      }
-    )
-
-
-    }
   ngOnInit() {
+
+    // var mapProp = {
+    //   center: new google.maps.LatLng(18.5793, 73.8143),
+    //   zoom: 15,
+    //   mapTypeId: google.maps.MapTypeId.ROADMAP
+    // };
+    // this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+
 
     this.Email_id = localStorage.getItem("email_id");
     this.cust_ser.Cusrtomer_login(this.Email_id).subscribe(
@@ -80,7 +58,7 @@ Product_arr:product[]=[];
                        {
                          console.log(data);
                          this.Product_arr.push(data[0]);
-                        //console.log(this.Product_arr);
+                       // console.log(this.Product_arr);
                    }
                 );
             }
@@ -90,8 +68,6 @@ Product_arr:product[]=[];
       }
     )
 
-      //console.log(this.Product_arr);
-
-    }
+  }
 
 }

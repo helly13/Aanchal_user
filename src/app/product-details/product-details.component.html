@@ -28,7 +28,8 @@
                   </div>
                 <div class="quantity">
                   <p>Quantity</p>
-                              <div class="pro-qty"><input type="number" [(ngModel)]="qty"></div>
+                              <div class="pro-qty"><input type="number"  required
+                                 min="1" [attr.max]="maxqty" [(ngModel)]="qty"></div>
                           </div>
                 <div *ngIf=!flag>
                     <a href="onsignup()" class="site-btn">ADD TO CART</a>

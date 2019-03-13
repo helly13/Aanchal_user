@@ -13,6 +13,7 @@ import { PastOrderComponent } from './past-order/past-order.component';
 import { MyaccComponent } from './myacc/myacc.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CategoryComponent } from './category/category.component';
+import { UserAuthgardServiceService } from './user-authgard-service.service';
 
 const routes: Routes = [
 

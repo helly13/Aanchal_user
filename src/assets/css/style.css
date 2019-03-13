@@ -342,7 +342,7 @@ ol {
 }
 
 .header-search-form {
-	width: 100%;
+	width: 40%;
 	position: relative;
 	padding: 0 10px;
 }
@@ -352,7 +352,8 @@ ol {
 	height: 44px;
 	font-size: 14px;
 	border-radius: 50px;
-	border: none;
+  border: none;
+
 	padding: 0 19px;
 	background: #f0f0f0;
 }

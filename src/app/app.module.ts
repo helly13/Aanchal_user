@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FormControl } from '@angular/forms';
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -38,6 +39,8 @@ import { AddressComponent } from './address/address.component';
 import { PastOrderComponent } from './past-order/past-order.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CategoryComponent } from './category/category.component';
+import { ContactComponent } from './contact/contact.component';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -64,7 +67,9 @@ import { CategoryComponent } from './category/category.component';
     PastOrderComponent,
     WishlistComponent,
     PastOrderComponent,
-    CategoryComponent
+    CategoryComponent,
+    ContactComponent,
+    SearchComponent
 
   ],
   imports: [

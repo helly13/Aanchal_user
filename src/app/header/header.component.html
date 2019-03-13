@@ -16,7 +16,16 @@
 
             <div class="col-xl-6 col-lg-5">
               <form class="header-search-form">
-                <input type="text" placeholder="Search Product ....">
+              <section class="filter-wrapper">
+    <div class="keyword-wrapper">
+   <input type="text"  id="keyword" (keyup)="searchfilter($event.target.value)" placeholder="Search for artists..." autofocus/>
+     </div>
+   <ul class="filter-select">
+      <li *ngFor="let result of Prod_list" class="filter-select-list"><img src="http://localhost:3000/images/Product_img/{{Product_img}}" alt="" width="50" height="50"><p class="artist-name">
+          {{result.Product_name}}</p>
+      <!-- <span class="tags" *ngFor="let gen of  result?.gen | slice:0:6">{{gen.Product_name}}</span> -->
+   </ul>
+   </section>
                 <button><i class="flaticon-search"></i></button>
               </form>
             </div>

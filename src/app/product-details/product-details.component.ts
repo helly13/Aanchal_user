@@ -34,6 +34,7 @@ export class ProductDetailsComponent implements OnInit {
   i:number;
   Sizes:string[]=[];
   Colors:string[]=[];
+  maxqty:number;
   Selected_color:string="";
   Selected_size:string="";
   Customer_id:number
@@ -116,6 +117,12 @@ export class ProductDetailsComponent implements OnInit {
 
         this.Stock_id=this.Product_Stock[this.i].Stock_id;
         console.log(this.Stock_id);
+        this.stock_ser.getStockById(this.Stock_id).subscribe(
+          (data:any)=>{
+            console.log(data);
+            this.maxqty=data[0].Quantity;
+          }
+        )
         break;
       }
     }
