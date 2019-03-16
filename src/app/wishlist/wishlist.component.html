@@ -1,0 +1,111 @@
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#">Clear Wishlist</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <div class="col-lg-4 order-1 order-lg-2">
+
+
+    <tr *ngFor="let item of Product_arr">
+      <td>
+        <div class="pl-thumb"> <img src="http://localhost:3000/images/Product_img/{{item.Product_image}}" alt=""></div>
+          <div class="product-info">
+            <h4 class="product-title">{{item.Product_name}}</h4>
+            <div class="text-lg text-medium text-muted">{{item.Product_price}}</div>
+            <div>Availability:
+              <div class="d-inline text-success">In Stock</div>
+            </div>
+          </div>
+
+      </td>
+      <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="icon-cross"></i></a></td>
+    </tr>
+    </div>
+
+      </tbody>
+</table> -->
+
+<!-- <h1>Hello</h1>
+<table>
+    <tr *ngFor="let item of Product_arr">
+
+      <td>{{item.Product_name}}</td>
+    </tr>
+</table> -->
+<div class="page-top-info">
+    <div class="container">
+      <h4>Your Wish Orders</h4>
+      <div class="site-pagination">
+        <a href="">Home</a> /
+        <a href="">Your Wishlist</a>
+      </div>
+    </div>
+  </div>
+  <!-- Page info end -->
+
+
+  <!-- cart section end -->
+  <section class="cart-section spad">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="cart-table">
+            <h3>Your Wishlist</h3>
+
+            <div></div>
+
+                <div class="cart-table-warp">
+                    <table>
+                    <thead>
+                      <tr>
+                        <th class="product-th">Product</th>
+                        <th class="product-title">Name</th>
+                        <th class="total-th">Price</th>
+                        <th class="total-th">Availability</th>
+                        <th class="total-th"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of Product_arr">
+                        <td class="product-col">
+                          <img src="http://localhost:3000/images/Product_img/{{item.Product_image}}" alt="">
+                          <div class="pc-title">
+
+
+                          </div>
+                        </td>
+                        <td class="total-col"><h4>{{item.Product_name}}</h4></td>
+                        <td class="total-col"><h4>{{item.Product_price}}</h4></td>
+                            &nbsp; &nbsp;
+                        <td class="total-col">
+                            <button mat-mini-fab color="basic" (click)="onProduct_Delete(item)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                        <td>
+                            <button mat-mini-fab color="basic" (click)="add_cart(item)">
+                                <i class="flaticon-bag"></i>
+                            </button>
+
+
+
+
+
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+
+            </div>
+
+          </div>
+        </div >
+
+
+      </div>
+
+  </section>

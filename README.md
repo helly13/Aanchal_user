@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # Aanchaluser
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
+=======
+# User
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+>>>>>>> 8ff0d726bad012b67fd430cf4f10175e866960e4
 
 ## Development server
 

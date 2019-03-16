@@ -1,0 +1,86 @@
+<section class="checkout-section spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 order-2 order-lg-1">
+        <form class="checkout-form">
+          <div class="cf-title">Billing Address</div>
+          <div class="row">
+            <div class="col-md-7">
+              <p>*Billing Information</p>
+            </div>
+            <div class="col-md-5">
+
+
+                    <mat-radio-group
+                    class="example-radio-group"
+                    [(ngModel)]="add"
+                    name="add"
+
+                  >
+                  <mat-radio-button    class="example-radio-button"
+                  *ngFor="let item of add_arr"
+                  [value]="item"
+                  (change)="handleChange(item)">
+                    {{item}}  &nbsp;
+                  </mat-radio-button>
+
+                  </mat-radio-group>
+                               </div>
+            </div>
+<br>
+
+          <div class="row address-inputs">
+            <div class="col-md-12">
+              <input type="text" placeholder="Address" name="address_line" [disabled]="!add_flag"  [(ngModel)]="address_line">
+
+              <input type="text" placeholder="Phone no." name="mobile" [disabled]="!add_flag" [(ngModel)]="number">
+              <br>
+              <mat-form-field>
+                  <mat-select matNativeControl required [disabled]="!add_flag"  [(ngModel)]="city"
+                  name="city">
+                    <mat-option value="Ahmedabad">Ahmedabad</mat-option>
+                    <mat-option value="Surat">Surat</mat-option>
+                    <mat-option value="Rajkot">Rajkot</mat-option>
+
+                  </mat-select>
+                </mat-form-field>
+            </div>
+          </div>
+
+
+          <div class="cf-title">Payment Note</div>
+          <ul class="payment-list">
+
+            <li>Pay when you get the package</li>
+            <li> <a  class="wishlist-btn point" (click)="onwishclick()">Paytm</a>
+            </li>
+          </ul>
+          <button class="site-btn submit-order-btn" (click)="oncheckout()">Place Order</button>
+        </form>
+      </div>
+      <div class="col-lg-4 order-1 order-lg-2">
+        <div class="checkout-cart">
+          <h3>Your Cart</h3>
+          <ul class="product-list">
+            <li>
+              <div *ngFor="let item of check_out">
+                  <div class="pl-thumb"> <img src="http://localhost:3000/images/Product_img/{{item.Product_image}}" alt=""></div>
+              <h6>{{item.Product_name}}</h6>
+
+              <p>{{item.Color_name}}</p>
+              <p>{{item.Quantity}}</p>
+              <p>{{item.Size_name}}</p>
+              </div>
+
+            </li>
+                   </ul>
+          <ul class="price-list">
+            <li>Total<span>{{total}}</span></li>
+            <li>Shipping<span>free</span></li>
+            <li class="total">Total<span>{{total}}</span></li>
+          </ul>
+        </div>
+      </div>
+</div>
+  </div>
+</section>
