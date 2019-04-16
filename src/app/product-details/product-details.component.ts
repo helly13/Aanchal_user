@@ -40,8 +40,9 @@ export class ProductDetailsComponent implements OnInit {
   Customer_id:number
   email_id:string
   j:number;
-  qty=0;
+  qty=1;
   size_flag:number=0;
+  color_flag:number=0;
   flag:boolean=true;
   constructor(private cat_ser:CategoryService,private prod_ser:ProductService,private cart_ser:CartService,private stock_ser:StockService,private cust_ser:CustomerService,private _router:Router,private _actroute:ActivatedRoute) { }
 
@@ -49,6 +50,11 @@ export class ProductDetailsComponent implements OnInit {
 
   onclickAddCart()
   {
+    if(this.Selected_size=="" || this.Selected_color=="")
+    {
+      alert("Please select size & color");
+      this.flag=false;
+    }
 
     if(this.flag==true)
     {
@@ -158,7 +164,7 @@ export class ProductDetailsComponent implements OnInit {
           this.size_flag=0;
           for(this.j=0;this.j<this.Sizes.length;this.j++)
           {
-            if(this.Sizes[this.j]==data[this.i].Size_name.toLowerCase())
+            if(this.Sizes[this.j].toLowerCase()==data[this.i].Size_name.toLowerCase())
             {
               this.size_flag=1;
               break;
@@ -168,8 +174,27 @@ export class ProductDetailsComponent implements OnInit {
           {
             this.Sizes.push(data[this.i].Size_name.toLowerCase());
           }
-            this.Colors.push(data[this.i].Color_name.toLowerCase());
+          //  this.Colors.push(data[this.i].Color_name.toLowerCase());
         }
+
+        for(this.i=0;this.i<data.length;this.i++)
+        {
+          this.color_flag=0;
+          for(this.j=0;this.j<this.Colors.length;this.j++)
+          {
+            if(this.Colors[this.j].toLowerCase()==data[this.i].Color_name.toLowerCase())
+            {
+              this.color_flag=1;
+              break;
+            }
+          }
+          if(this.color_flag==0)
+          {
+            this.Colors.push(data[this.i].Color_name.toLowerCase());
+          }
+            
+        }
+
       }
     );
 

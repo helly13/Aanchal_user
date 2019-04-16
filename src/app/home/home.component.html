@@ -1,65 +1,274 @@
-<!-- letest product section -->
-<section class="top-letest-product-section">
-  <div class="container">
-    <div class="section-title">
-      <h2>LATEST PRODUCTS</h2>
+<!-- <div class="slider"></div> -->
+
+<!-- start   -->
+
+<div class="main">
+    <div class="column active">
+      <div class="content">
+        <h1>1</h1>
+        <div class="box">
+          <h2>HEllO HELLY</h2>
+          <p>
+            duhskj
+            dhsaukj
+            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
+            cjsalkxz
+            hdskazxjekldsfx
+            jsdkzxl
+            duhskj
+            dhsaukj
+            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
+            cjsalkxz
+            hdskazxjekldsfx
+            jsdkzxl
+            duhskj
+            dhsaukj
+            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
+            cjsalkxz
+            hdskazxjekldsfx
+            jsdkzxl
+          </p>
+        </div>
+      </div>
+      <div class="bg bg1"></div>
+    </div>
+    <div class="column active">
+      <div class="content">
+        <h1>2</h1>
+        <div class="box">
+          <h2>HEllO HELLY</h2>
+          <p>
+            duhskj
+            dhsaukj
+            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
+            cjsalkxz
+            hdskazxjekldsfx
+            jsdkzxl
+          </p>
+        </div>
+      </div>
+      <div class="bg bg2"></div>
+    </div>
+    <div class="column active">
+      <div class="content">
+        <h1>3</h1>
+        <div class="box">
+          <h2>HEllO HELLY</h2>
+          <p>
+            duhskj
+            dhsaukj
+            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
+            cjsalkxz
+            hdskazxjekldsfx
+            jsdkzxl
+          </p>
+        </div>
+      </div>
+      <div class=" bg bg3"></div>
+    </div>
+    <div class="column active">
+      <div class="content">
+        <h1>4</h1>
+        <div class="box">
+          <h2>HEllO HELLY</h2>
+          <p>
+            duhskj
+            dhsaukj
+            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
+            cjsalkxz
+            hdskazxjekldsfx
+            jsdkzxl
+          </p>
+        </div>
+      </div>
+      <div class=" bg bg4"></div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+
+    $(document).on('mouseover', '.main .column', function () {
+      $(this).addClass('active').siblings().removeClass('active')
+    })
+    
+  </script>
+
+
+
+<!-- end -->
+
+
+<!-- <div class="main-content-header">
+    <h1> WELCOME TO <span class="colorchange">AANCHAL</span>.<br>
+      FASHION DESIGN BOUTIQUE </h1>
+    <a href="#" class="btn btn-full">ADD TO CART</a>
+    <a href="#" class="btn btn-nav"> show me more</a>
+  </div> -->
+
+<div class="row" style="padding: 60px;text-align: center;">
+  <div class="col-md-1">
+
+  </div>
+<!-- 
+  <div class="col-md-4">
+    <img src="../../assets/img/k1.jpg" style="height: 600px;">
+  </div> -->
+
+  <!-- <div class="col-md-7">
+    <h3 style="padding:70px;text-align:center;font-size: 40px;">Get the look Women..!!</h3>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <p style="font-size:25px;text-align:center;">
+          Take a look at the all new handpicked ensembles
+          that redefine contemporary trends.<br>
+          Discover handcrafted techniques in vibrant hues and intricate
+          embroideries for the season.<br>
+
+          Stay in vogue with these curated looks put together just for you!
+        </p>
+      </div>
+      <div class="col-md-3"></div>
+
+
+    </div>
+    <div class="row">
+      <div class="col-md-8"></div>
+
+      <div class="col-md-4">
+        <a href="" style="font-size:30px;text-align:right;font-weight:bolder;color:black">
+          Explore ->
+        </a>
+      </div>
     </div>
 
-    <slideshow
-      #img1
-      [height]="'400px'"
-      [showDots]="true"
-      [minHeight]="'100px'"
-      [autoPlay]="true"
-      [showArrows]="false"
-      [imageUrls]="ImageUrl"
-      [lazyLoad]="ImageUrl?.length > 1"
-      [autoPlayWaitForLazyLoad]="true"
-      [showArrows]="true"
-      [arrowSize]="'30px'"
-      [backgroundSize]="'300px'"
-      [showCaptions]="true"
-      (click)="onSlideShow(img1.slideIndex)"
-    >
-    </slideshow>
+  </div> -->
+
+</div>
+
+
+
+
+
+
+<section class="sec">
+  <div class="container">
+
   </div>
 </section>
 
+<section class="product-filter-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>&nbsp;&nbsp;&nbsp;LATEST PRODUCT</h2>
+    </div>
+  </div>
+</section>
+
+
+<div class="browser">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let item of New_Product_list">
+      <div class="product-item">
+        <div class="pi-pic">
+          <img class="pic" src="http://localhost:3000/images/Product_img/{{
+                          item.Product_image
+                        }}" alt="" />
+
+          <div class="pi-links point">
+            <a class="wishlist-btn" (click)="onwishclick(item)"><i class="flaticon-heart"></i></a>
+            &nbsp;
+            <a class="add-card" (click)="onProductDetails(item)"><i class="flaticon-bag"></i><span>ADD TO
+                CART</span></a>
+          </div>
+        </div>
+        <div class="pi-text">
+          <h6>{{ item.Product_price }}</h6>
+          <p>{{ item.Product_name }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 <!-- letest product section end -->
 
-<!-- Product filter section -->
+
+<!-- 
+<div class="row" style="padding:50px;">
+  <div class="col-md-6">
+    <img src="../../assets/img/k9.jpg"  style="width:800px;height:600px;padding:10px;">
+  </div>
+  <div class="col-md-6">
+    <img src="../../assets/img/k8.jpg" style="width:800px;height:600px;padding:10px">
+  </div>
+</div> -->
+
+<div class="middleimg"></div>
+
+<!--cc0066 Product filter section -->
 <section class="product-filter-section">
   <div class="container">
     <div class="section-title">
       <h2>BROWSE TOP SELLING PRODUCTS</h2>
     </div>
-    <div class="row">
-      <div class="col-lg-3 col-sm-6" *ngFor="let item of New_Product_list">
-        <div class="product-item">
-          <div class="pi-pic">
-            <img
-              class="pic"
-              src="http://localhost:3000/images/Product_img/{{
-                item.Product_image
-              }}"
-              alt=""
-            />
+  </div>
+</section>
+<div class="browser">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let item of New_Product_list">
+      <div class="product-item">
+        <div class="pi-pic">
+          <img class="pic" src="http://localhost:3000/images/Product_img/{{
+                          item.Product_image
+                        }}" alt="" />
 
-            <div class="pi-links">
-                <a  class="wishlist-btn point" (click)="onwishclick(item)"><i class="flaticon-heart"></i></a>
-                &nbsp;
-              <a class="add-card" (click)="onProductDetails(item)"
-                ><i class="flaticon-bag"></i><span>ADD TO CART</span></a
-              >
-            </div>
+          <div class="pi-links point">
+            <a class="wishlist-btn" (click)="onwishclick(item)"><i class="flaticon-heart"></i></a>
+            &nbsp;
+            <a class="add-card" (click)="onProductDetails(item)"><i class="flaticon-bag"></i><span>ADD TO
+                CART</span></a>
           </div>
-          <div class="pi-text">
-            <h6>{{ item.Product_price }}</h6>
-            <p>{{ item.Product_name }}</p>
-          </div>
+        </div>
+        <div class="pi-text">
+          <h6>{{ item.Product_price }}</h6>
+          <p>{{ item.Product_name }}</p>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
+
+
 <!-- Product filter section end -->
+
+
+	<!-- letest product section end -->
+  <section class="top-letest-product-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>LATEST PRODUCTS</h2>
+        </div>
+        <div class="product-slider owl-carousel">
+          <div class="product-item" *ngFor="let item of New_Product_list">
+            <div class="pi-pic">
+              <img src="http://localhost:3000/images/Product_img/{{
+                item.Product_image
+              }}" alt="">
+              <div class="pi-links">
+                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+              </div>
+            </div>
+            <div class="pi-text">
+              <h6>$35,00</h6>
+              <p>Flamboyant Pink Top </p>
+            </div>
+          </div>
+          
+                </div>
+      </div>
+    </section>
+  

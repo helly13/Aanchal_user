@@ -1,76 +1,96 @@
-
 <!-- Page info -->
 <div class="page-top-info">
-		<div class="container">
-			<h4>CAtegory PAge</h4>
-			<div class="site-pagination">
-				<a href="">Home</a> /
-			</div>
+	<div class="container">
+		<h4>CAtegory PAge</h4>
+		<div class="site-pagination">
+			<a href="">Home</a> /
 		</div>
 	</div>
-	<!-- Page info end -->
+</div>
+<!-- Page info end -->
 
 <section class="category-section spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 order-2 order-lg-1">
-					<div class="filter-widget">
-						<h2 class="fw-title">Categories</h2>
-						<ul class="category-menu">
-                <li *ngFor="let item of Category_list"><a (click)="onClickCategory(item)" >{{item.Category_name}}</a></li>
-						</ul>
-					</div>
-					<div class="filter-widget mb-0">
-						<h2 class="fw-title">refine by</h2>
-						
-					</div>
-					<div class="filter-widget mb-0">
-						<h2 class="fw-title">color by</h2>
-						<div class="fw-color-choose">
-							<div class="cs-item" *ngFor="let item of Color_list">
-								<input type="radio" name="cs" id="{{item.Color_name}}-color" (click)="onClickColor(item)">
-								<label class="cs-{{item.Color_name}}" for="{{item.Color_name}}-color">
-									<span>({{item.Color_name}})</span>
-								</label>
-							</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 order-2 order-lg-1">
+				<div class="filter-widget">
+					<h2 class="fw-title">Categories</h2>
+					<ul class="category-menu">
+						<li *ngFor="let item of Category_list">
+							<a (click)="onClickCategory(item)">{{item.Category_name | uppercase}}</a></li>
+					</ul>
+				</div>
+				<!-- <div class="filter-widget mb-0">
+					<h2 class="fw-title">refine by</h2>
+				</div> -->
+				<div class="filter-widget mb-0">
+					<h2 class="fw-title">color by</h2>
+					<div class="fw-color-choose">
+						<div class="cs-item" *ngFor="let item of Color_list">
+							<label class="cs-{{item.Color_name}}" for="{{item.Color_name}}-color">
+									<input type="checkbox" name="cs" id="{{item.Color_name}}-color" (click)="onClickColor(item)">
+								<!-- <span>({{item.Color_name}})</span> -->
+							</label>
 						</div>
 					</div>
-					<div class="filter-widget mb-0">
-						<h2 class="fw-title">Size</h2>
-						<div class="fw-size-choose">
-							<div class="sc-item" *ngFor="let item of Size_list">
-								<input type="radio" name="sc" id="{{item.Size_name}}-size" (click)="onClickSize(item)">
-								<label for="{{item.Size_name}}-size">{{item.Size_name}}</label>
-							</div>	
+				</div>
+				<div class="filter-widget mb-0">
+					<h2 class="fw-title">Size</h2>
+					<div class="fw-size-choose">
+						<div class="sc-item" *ngFor="let item of Size_list">
+							<input type="checkbox" name="sc" id="{{item.Size_name}}-size" (click)="onClickSize(item)">
+							<label for="{{item.Size_name}}-size">{{item.Size_name}}</label>
 						</div>
 					</div>
-					
 				</div>
 
-				<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
-					<div class="row">
-						<div class="col-lg-4 col-sm-6" *ngFor="let item of Product_list">
-							<div class="product-item">
-								<div class="pi-pic">
-                    <img  src="http://localhost:3000/images/Product_img/{{item.Product_image}}" alt="">
-									
-									<div class="pi-links">
-										<a (click)="onProductDetails(item)" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-									</div>
-								</div>
-								<div class="pi-text">
-									<h6>{{item.Product_price}}</h6>
-									<p>{{item.Product_name}}</p>
+			</div>
+
+		
+			<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
+				<div class="row">
+					<div class="col-lg-4 col-sm-8" *ngFor="let item of Product_list | paginate: { itemsPerPage: 9, currentPage: p }">
+						<div class="product-item">
+							<div class="pi-pic">
+									<img class="pic" src="http://localhost:3000/images/Product_img/{{item.Product_image}}" alt="">
+								<!-- <img class="pic" src="http://localhost:3000/images/Product_img/{{item.Product_image}}" alt="" /> -->
+								<div class="pi-links point">
+									<a class="wishlist-btn" (click)="onwishclick(item)"><i
+											class="flaticon-heart"></i></a>
+									&nbsp;
+									<a class="add-card" (click)="onProductDetails(item)"><i
+											class="flaticon-bag"></i><span>ADD TO
+											CART</span></a>
 								</div>
 							</div>
+
+
 						</div>
-						
+						<div class="pi-text">
+							<h6>{{item.Product_price}}</h6>
+							<p>{{item.Product_name}}</p>
+						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
-	</section>
-	<!-- Category section end -->
+		<br><br>
+		<div class="row">
+			<div class="col-6">
+				
+			</div>
+			<div class="col-6">
+					<pagination-controls (pageChange)="p = $event"></pagination-controls> 
+			</div>
+		</div>
+	 </div> 
+</section>
+<!--
+ Category section end -->
 
-
-	
+<!-- <ul>
+	<div>
+	<li  *ngFor="let item of Product_list | paginate: { itemsPerPage: 9, currentPage: p }">{{item.Product_name}}</li>
+	</div>
+</ul> -->

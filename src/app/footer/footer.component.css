@@ -1,0 +1,25 @@
+/* .img
+{
+    background-image:url('../../assets/img/footer.jpg');
+
+} */
+h2
+{
+    color:white;
+}
+a
+{
+    padding:10px;
+}
+label
+{
+    color:white;
+    font-size:20px;
+}
+
+.img
+{
+    background: url("../../assets/img/foott.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}

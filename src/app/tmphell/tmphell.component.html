@@ -1,0 +1,150 @@
+<!-- letest product section -->
+<!-- <section class="top-letest-product-section">
+		<div class="container">
+			<div class="section-title">
+				<h2>LATEST PRODUCTS</h2>
+			</div>
+			<div class="product-slider owl-carousel">
+				<div class="product-item">
+					<div class="pi-pic">
+						<img src="../../assets/img/k1.jpg" alt="">
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Flamboyant Pink Top </p>
+					</div>
+				</div>
+				
+							</div>
+		</div>
+	</section> -->
+	<!-- letest product section end -->
+
+
+
+
+  <section class="product-filter-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>BROWSE TOP SELLING PRODUCTS</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-sm-6" *ngFor="let item of New_Product_list">
+            <div class="product-item">
+              <div class="pi-pic">
+                <img
+                  style="height:100px;width:100px;" src="http://localhost:3000/images/Product_img/{{item.Product_image}}"alt=""/>
+    
+                <div class="pi-links">
+                  <a class="add-card" (click)="onProductDetails(item)"
+                    ><i class="flaticon-bag"></i><span>ADD TO CART</span></a
+                  >
+                </div>
+              </div>
+              <div class="pi-text">
+                <h6>{{ item.Product_price }}</h6>
+                <p>{{ item.Product_name }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+<!-- <div class="main">
+    <div class="column active">
+      <div class="content">
+        <h1>1</h1>
+        <div class="box">
+          <h2>HEllO HELLY</h2>
+          <p>
+            duhskj
+            dhsaukj
+            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
+            cjsalkxz
+            hdskazxjekldsfx
+            jsdkzxl
+          </p>
+        </div>
+      </div>
+      <div class="bg bg1"></div>
+    </div>
+    <div class="column active">
+      <div class="content">
+        <h1>2</h1>
+        <div class="box">
+          <h2>HEllO HELLY</h2>
+          <p>
+            duhskj
+            dhsaukj
+            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
+            cjsalkxz
+            hdskazxjekldsfx
+            jsdkzxl
+          </p>
+        </div>
+      </div>
+      <div class="bg bg2"></div>
+    </div>
+    <div class="column active">
+      <div class="content">
+        <h1>3</h1>
+        <div class="box">
+          <h2>HEllO HELLY</h2>
+          <p>
+            duhskj
+            dhsaukj
+            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
+            cjsalkxz
+            hdskazxjekldsfx
+            jsdkzxl
+          </p>
+        </div>
+      </div>
+      <div class=" bg bg3"></div>
+    </div>
+    <div class="column active">
+      <div class="content">
+        <h1>4</h1>
+        <div class="box">
+          <h2>HEllO HELLY</h2>
+          <p>
+            duhskj
+            dhsaukj
+            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
+            cjsalkxz
+            hdskazxjekldsfx
+            jsdkzxl
+          </p>
+        </div>
+      </div>
+      <div class=" bg bg4"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+    $(document).on('mouseover', '.main .column', function () {
+      $(this).addClass('active').siblings().removeClass('active')
+    })
+    
+  </script> -->
+<!-- </body>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+  $(document).on('mouseover', '.main .column', function () {
+    $(this).addClass('active').siblings().removeClass('active')
+  })
+</script>
+</html> -->

@@ -1,119 +1,83 @@
-    <!-- Header section -->
-    <header class="header-section">
-      <div class="header-top">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-2 text-center text-lg-left">
-              <!-- logo -->
-              <a href="./index.html" class="site-logo">
-
-              </a>
-            </div>
-
-
-
-
-
-            <div class="col-xl-6 col-lg-5">
-              <form class="header-search-form">
-              <section class="filter-wrapper">
-    <div class="keyword-wrapper">
-   <input type="text"  id="keyword" (keyup)="searchfilter($event.target.value)" placeholder="Search for artists..." autofocus/>
-     </div>
-   <ul class="filter-select">
-      <li *ngFor="let result of Prod_list" class="filter-select-list"><img src="http://localhost:3000/images/Product_img/{{Product_img}}" alt="" width="50" height="50"><p class="artist-name">
-          {{result.Product_name}}</p>
-      <!-- <span class="tags" *ngFor="let gen of  result?.gen | slice:0:6">{{gen.Product_name}}</span> -->
-   </ul>
-   </section>
-                <button><i class="flaticon-search"></i></button>
-              </form>
-            </div>
-
-
-
-
-            <div class="col-xl-4 col-lg-5">
-              <div class="user-panel">
-
-
-
-                <div class="up-item">
-
-                    <div *ngIf="!flag" >
-                  <i class="flaticon-profile"></i>
-                  <a href="onsignup()">Sign</a> In
-                </div>
-
-                <div *ngIf="flag" >
-                    <i class="flaticon-profile"></i>
-                    <a (click)="myaccount()">Hello</a> &nbsp;{{name}}
-
-
-
+<!-- Header section -->
+<header class="header-sec">
+  <div class="header-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 text-center text-lg-left">
+          <!-- logo -->
+          <a href="./index.html" class="site-logo">
+          </a>
+        </div>
+        <div class="col-md-6">
+          <form class="header-search-form size">
+            <section class="filter-wrapper">
+              <div class="keyword-wrapper">
+                <input type="text" id="keyword" (keyup)="searchfilter($event.target.value)"
+                  placeholder="Search for artists..." autofocus />
+              </div>
+              <ul class="filter-select" *ngIf="!flag1">
+                <li (click)="itemsearch(result)" *ngFor="let result of Prod_list" class="filter-select-list">
+                  
+                  <img src="http://localhost:3000/images/Product_img/{{result.Product_image}}" alt="" width="50" height="50">
+                  <p class="artist-name">
+                    {{result.Product_name}}</p>
+                  <span class="tags" *ngFor="let gen of  result?.gen | slice:0:6">{{gen.Product_name}}</span>
+              </ul>
+            </section>
+            <button><i class="flaticon-search"></i></button>
+          </form>
+        </div>
+        <div class="col-md-4">
+          <div class="user-panel">
+            <div class="up-item">
+                
+              <div *ngIf="!flag">
+                <li><i class="flaticon-profile"></i><a href="onsignup()">Sign</a> In</li>
+              </div>
+              <div *ngIf="flag">
+                <!-- <li><a (click)="myaccount()">Hello</a> &nbsp;{{name}}</li> -->
+                <!-- start -->
+                <nav class="main-navbar1">
+                  <div class="container">
+                      <li *ngIf="flag"><i class="flaticon-profile"></i><a href="myprofile()">Hello {{name}}</a>
+                      </li>
                   </div>
-
-
-
-
-                  </div>
-
-
-
-
-
-                <div class="up-item">
-                  <div class="shopping-card">
-                    <i class="flaticon-bag"></i>
-                    <span>{{total}}</span>
-                  </div>
-                  <a href="cart()">Shopping Cart</a>
-                </div>
-                 &nbsp; &nbsp;
-                <div class="up-item" >
-                    <div class="shopping-card">
-
-                    </div>
-
-                    <a *ngIf="flag" (click)="logout()">logout</a>
-
-                    &nbsp;&nbsp;
-
-                  </div>
-
+                </nav>
+                <!-- end -->
               </div>
             </div>
-
-
-
-
-
+            <div class="up-item">
+              <a href="category()" style="color:purple"> Shop</a>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div class="up-item">
+              <!-- <div class="shopping-card"> -->
+                <i class="flaticon-bag" style="color:purple"></i>
+                <span style="color:purple">{{total}}</span>
+              <!-- </div> -->
+              <a href="cart()" style="color:purple"> Shopping Cart</a>
+            </div>
+            <!-- <a *ngIf="flag" (click)="logout()">logout</a> -->
           </div>
+        </div>
       </div>
-        </div>
-      <nav class="main-navbar">
-        <div class="container">
-          <!-- menu -->
-          <ul class="main-menu">
-            <li><a href="#">Home</a></li>
+    </div>
+  </div>
+</header>
 
+<script type="text/javascript">
 
-            <li><a href="category">Category </a></li>
-            <!-- <li *ngFor="let item of Category_list"><a href="#">{{item.Category_name}}</a></li> -->
+  $(document).on('scroll', function () {
+    if($(this).scrollTop()>1)
+    {
+      $('header').addClass('sticky');
+    }
+    else
+    {
+      $('header').removeClass('sticky');
+    }
+  })
+  
+</script>
 
-              <li *ngIf="flag"><a href="#">My Profile</a>
-                <ul class="sub-menu">
-
-                  <mat-list-item ><mat-icon>person</mat-icon><li><a href="myprofile()">My Account</a></li></mat-list-item>
-                  <li><a href="past_order()">Past Order</a></li>
-                  <li><a href="wishlist()">Wish List</a></li>
-                  <li><a href="./checkout.html">Logout</a></li>
-
-                </ul>
-              </li>
-
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <!-- Header section end -->
+<!-- Header section end -->

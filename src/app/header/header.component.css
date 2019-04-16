@@ -1,3 +1,42 @@
+.size
+{
+  width: 90%;
+}
+a{
+  color: purple;
+}
+li a
+{
+  color:purple;
+}
+.main-navbar1
+{
+  background-color:transparent;
+  color: black;
+  position: sticky;
+  
+}
+
+li{
+  text-decoration: none;
+  list-style: none;
+  color: purple;
+}
+
+.header-sec{
+  /* min-height: 2000px; */
+  /* overflow: hidden; */
+  position: fixed;
+  width:100%;
+  z-index: 1;
+}
+header.sticky
+{
+  background:rgba(0,0,0,.8);
+  color:white;
+  line-height: 50px;
+  height: 70px;
+}
 /* *::after,
 *::before {
   margin: 0;

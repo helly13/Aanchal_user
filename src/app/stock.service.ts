@@ -9,6 +9,7 @@ export class StockService {
 
   private url:string='http://localhost:3000/stock/';
     private stock_url:string='http://localhost:3000/stock_details/';
+    private stock_size_url:string='http://localhost:3000/stock_size/';
   constructor(private _http:HttpClient) { }
 
   getDetailsByProductid(Product_id:number){
@@ -32,6 +33,12 @@ export class StockService {
     return this._http.put(this.url,body,{headers:head1});
   }
 
+  getStockByColorSizeId(selected_color_size_id)
+  {
+    let _abc=new HttpHeaders().set('Content-Type','application/json');
+    let body=JSON.stringify(selected_color_size_id);
+    return this._http.post(this.stock_size_url,body,{headers:_abc});
+  }
 
 
 }

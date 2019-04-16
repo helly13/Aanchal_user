@@ -64,4 +64,9 @@ i:number=0;
 
   }
 
+  itemsearch(item)
+  {
+    this._router.navigate(['product_details',item.Product_id]);
+  }
+
 }

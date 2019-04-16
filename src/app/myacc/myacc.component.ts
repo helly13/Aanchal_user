@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../customer.service';
 import { customer } from '../classes/customer_class';
+import { Router } from '@angular/router';
 
 export class updatecustomer
 {
@@ -38,7 +39,7 @@ up_flag:boolean=false;
 
   minDate = new Date(1960, 0, 1);
   maxDate = new Date(2000, 11, 31);
-  constructor(private cust_ser:CustomerService) { }
+  constructor(private cust_ser:CustomerService,private _route:Router) { }
 
   ngOnInit() {
     this.up_flag=false;
@@ -82,4 +83,14 @@ onsubmit()
     }
   )
 }
+
+logout() {
+
+  localStorage.setItem('email_id',"");
+  localStorage.setItem('Customer_id',"");
+localStorage.clear();
+window.location.href="";
+  //this._route.navigate([""]);
+}
+
 }

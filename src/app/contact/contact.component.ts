@@ -6,15 +6,14 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { category } from "../classes/category_class";
 import { CartService } from "../cart.service";
 import { CustomerService } from '../customer.service';
-//import { } from '@types/googlemaps';
-
+import { timer } from "rxjs";
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  @ViewChild('gmap') gmapElement: any;
+//  @ViewChild('gmap') gmapElement: any;
   //map: google.maps.Map;
   Customer_id:number;
   Product_id:number;
@@ -33,6 +32,7 @@ Product_arr:product[]=[];
   ) { }
 
   ngOnInit() {
+    // AIzaSyBNgU0rRxQxbwxJLZTUcQLQaHmxv5gytY4
 
     // var mapProp = {
     //   center: new google.maps.LatLng(18.5793, 73.8143),
@@ -71,3 +71,4 @@ Product_arr:product[]=[];
   }
 
 }
+

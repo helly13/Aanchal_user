@@ -1,20 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-<<<<<<< HEAD
-
-import { AppComponent } from './app.component';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-=======
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
+import { NgxPaginationModule } from "ngx-pagination";
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -43,6 +32,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
+import { AngularPaginatorModule } from 'angular-paginator';
 
 import { LoginComponent } from './login/login.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
@@ -53,7 +43,9 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { CategoryComponent } from './category/category.component';
 import { ContactComponent } from './contact/contact.component';
 import { SearchComponent } from './search/search.component';
-
+import { Home1Component } from './home1/home1.component';
+import { TmphellComponent } from './tmphell/tmphell.component';
+import { NgImageSliderComponent } from "ng-image-slider";
 
 
 @NgModule({
@@ -81,7 +73,9 @@ import { SearchComponent } from './search/search.component';
     PastOrderComponent,
     CategoryComponent,
     ContactComponent,
-    SearchComponent
+    SearchComponent,
+    Home1Component,
+    TmphellComponent
 
   ],
   imports: [
@@ -93,6 +87,8 @@ import { SearchComponent } from './search/search.component';
     MatCardModule,
     MatListModule,
     FormsModule,
+    AngularPaginatorModule,
+    NgxPaginationModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
@@ -102,11 +98,11 @@ import { SearchComponent } from './search/search.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+  
 
    ],
 
->>>>>>> 8ff0d726bad012b67fd430cf4f10175e866960e4
   providers: [],
   bootstrap: [AppComponent]
 })

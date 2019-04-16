@@ -1,10 +1,6 @@
 {
   "rulesDirectory": [
-<<<<<<< HEAD
-    "node_modules/codelyzer"
-=======
     "codelyzer"
->>>>>>> 8ff0d726bad012b67fd430cf4f10175e866960e4
   ],
   "rules": {
     "arrow-return-shorthand": true,
@@ -69,10 +65,7 @@
     ],
     "no-misused-new": true,
     "no-non-null-assertion": true,
-<<<<<<< HEAD
-=======
     "no-redundant-jsdoc": true,
->>>>>>> 8ff0d726bad012b67fd430cf4f10175e866960e4
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-string-throw": true,

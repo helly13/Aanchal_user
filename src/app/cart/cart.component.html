@@ -35,7 +35,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let item of Cart_details">
+                      <tr *ngFor="let item of Cart_details,let i=index">
                         <td class="product-col">
                           <img src="http://localhost:3000/images/Product_img/{{item.Product_image}}" alt="">
                           <div class="pc-title">
@@ -46,16 +46,16 @@
                         <td class="quy-col">
                           <div class="quantity">
                                         <div class="pro-qty">
-                              <input type="number" value="{{item.Quantity}}" min="1">
+                              <input type="number" value="{{item.Quantity}}" min="1" [attr.max]="item.qty" (change)="onchangeqty(i)" [(ngModel)]="qty[i]">
                             </div>
                                     </div>
                         </td>
                         <td class="size-col"><h4>{{item.Size_name}}</h4></td>
                         <td class="size-col"><h4>{{item.Color_name}}</h4></td>
-                        <td class="total-col"><h4>{{item.Product_price}}</h4></td>
+                        <td class="total-col"><h4>{{item.Product_price*qty[i]}}</h4></td>
                             &nbsp; &nbsp;
                             <td>
-                                <button mat-mini-fab color="basic" (click)="oncart_Delete(item)">
+                                <button mat-mini-fab color="basic" (click)="oncart_Delete(item,i)">
                                     <mat-icon>delete</mat-icon>
                                 </button>
                               </td>

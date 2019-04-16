@@ -17,6 +17,7 @@ export class TableDetais {
     public Color_name: string,
     public Size_name: string,
     public Quantity: number,
+    public qty:number,
     public Product_price: number,
     public Product_image:string
   ) {}
@@ -35,7 +36,8 @@ export class CartComponent implements OnInit {
   Total: number = 0;
   i: number = 0;
   flag: boolean = false;
-
+  cart_qty:number=1;
+  qty:number[]=[];
   constructor(
     private cat_ser: CategoryService,
     private prod_ser: ProductService,
@@ -57,10 +59,24 @@ export class CartComponent implements OnInit {
     this._router.navigate(["cart"]);
   }
 
+  onchangeqty(i)
+  {
+    console.log("yes");
+    console.log(i);
+    console.log(this.qty[i]);
+
+    this.Total=0
+    for(let x=0;x<this.Cart_details.length;x++)
+    {
+      this.Total+=this.Cart_details[x].Product_price*this.qty[x];
+    }
+
+  }
+
   ngOnInit() {
     //this.flag=false;
     this.email_id = localStorage.getItem("email_id");
-
+    this.Total=0;
     if (this.email_id == null) {
       this.flag = false;
     } else {
@@ -70,12 +86,13 @@ export class CartComponent implements OnInit {
         this.flag = true;
 
         this.cart_ser.getCartByCustomerId(this.Customer_id).subscribe((data: any[]) => {
-            console.log(data);
+      console.log(data);
             if (data.length >= 1) {
               this.Cart_details = data;
               console.log(this.Cart_details);
               for (this.i = 0; this.i < this.Cart_details.length; this.i++) {
                 this.Total += this.Cart_details[this.i].Product_price*this.Cart_details[this.i].Quantity;
+                this.qty.push(this.Cart_details[this.i].Quantity);
               }
             } else {
               this.flag = false;
@@ -83,15 +100,19 @@ export class CartComponent implements OnInit {
           });
       });
     }
+    console.log(this.qty);
   }
 
-  oncart_Delete(item) {
+  oncart_Delete(item,i) {
     console.log(item);
     this.cart_ser.removeFromCart(item.Cart_id).subscribe(
       (data:any)=>{
         console.log(data);
+        this.qty.splice(i,1);
+        this.Cart_details.splice(i,i);
         this.ngOnInit();
       }
     )
   }
+
 }

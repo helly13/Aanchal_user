@@ -9,6 +9,7 @@ import { CustomerService } from '../customer.service';
 import { CartService } from '../cart.service';
 import { wishlist } from '../classes/wish_list_class';
 
+declare var $;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -85,11 +86,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
+
+    $(document).on('mouseover', '.main .column', function () {
+      $(this).addClass('active').siblings().removeClass('active')
+    })
+
     this.emil_id=localStorage.getItem('email_id');
-
-
     console.log(this.emil_id);
-
     if(this.emil_id!=null)
     {
       this.cust_ser.Cusrtomer_login(this.emil_id).subscribe((data: any) => {

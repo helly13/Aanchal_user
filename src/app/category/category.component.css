@@ -1,0 +1,48 @@
+.pic
+{
+    height: 300px;
+    width: 400px;
+}
+.point
+{
+  cursor:hand;
+}
+
+pagination-controls
+{
+  font-size: 25px;
+  color: black;
+  float: right;
+}
+
+.fw-size-choose input[type=checkbox] {
+	visibility: hidden;
+	position: absolute;
+}
+
+.fw-size-choose input[type=checkbox]:checked+label {
+	-webkit-box-shadow: 0 0 0 2px #f51167;
+  box-shadow: 0 0 0 2px #f51167;
+  background: #f51167;
+  color: white;
+}
+
+.fw-size-choose input[type=checkbox]:checked+label span {
+	color: #b09d81;
+}
+
+
+
+input[type=checkbox] {
+	visibility: hidden;
+	position: absolute;
+}
+
+input[type=checkbox]:checked+label {
+	-webkit-box-shadow: 0 0 0 2px #f51167;
+  box-shadow: 0 0 0 2px #f51167;
+}
+
+input[type=checkbox]:checked+label span {
+	color: #b09d81;
+}
