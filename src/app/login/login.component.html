@@ -1,4 +1,79 @@
-<div class="jumbotron">
+<div class="mainpanelcontainer">
+    <section id="home">
+      <video src="../../assets/video/login.mp4" id="bg-video" autoplay loop muted></video>
+    </section>
+  
+    <div id="home-overlay">
+      <div class="container">
+        <div id="home-content">
+          <div id="home-content-inner" class="text-left">
+            <div id="home-heading">
+              <h4 id="home-heading-1">Loging Form</h4>
+              <h5 id="home-heading-1">Get
+                <span>Logged in</span>
+              </h5>
+            </div>
+            <div id="home-text">
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label>Email</label><br>
+                  <input type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                    [(ngModel)]="Email_id" />
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Password</label><br>
+                  <input type="password" formControlName="password"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" [(ngModel)]="Password" />
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button [disabled]="loading" class="btn btn-general">Login</button>
+                  <button style="margin-left:50px;" (click)="onforgetpassword()" class="btn btn-general">Forget
+                    password</button>
+                </div>
+                <a href="onsignup()" >New User?</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="jumbotron">
   <div class="container">
       <div class="row">
           <div class="col-md-6 offset-md-3">
@@ -28,4 +103,4 @@
           </div>
       </div>
   </div>
-</div>
+</div> -->

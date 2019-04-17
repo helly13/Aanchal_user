@@ -1,61 +1,67 @@
 <!-- Header section -->
-<header class="header-sec">
+<header class="header-sec sticky">
   <div class="header-top">
     <div class="container">
       <div class="row">
         <div class="col-md-2 text-center text-lg-left">
           <!-- logo -->
-          <a href="./index.html" class="site-logo">
+          <a [routerLink]="['']" routerLinkActive="router-link-active">
+          <h1> <span class="colorchange">AANCHAL</span><br> </h1>
           </a>
         </div>
         <div class="col-md-6">
           <form class="header-search-form size">
             <section class="filter-wrapper">
-              <div class="keyword-wrapper">
+              <div class="keyword-wrapper" style="font-size:20px;color:black;">
                 <input type="text" id="keyword" (keyup)="searchfilter($event.target.value)"
-                  placeholder="Search for artists..." autofocus />
+                  placeholder="Search for Product..." />
               </div>
-              <ul class="filter-select" *ngIf="!flag1">
-                <li (click)="itemsearch(result)" *ngFor="let result of Prod_list" class="filter-select-list">
-                  
-                  <img src="http://localhost:3000/images/Product_img/{{result.Product_image}}" alt="" width="50" height="50">
-                  <p class="artist-name">
-                    {{result.Product_name}}</p>
+              <ul class="filter-select fix" *ngIf="!flag1">
+                <li (click)="itemsearch(result)" *ngFor="let result of Prod_list" class="filter-select-list"
+                  class="search">
+
+                  <img src="http://localhost:3000/images/Product_img/{{result.Product_image}}" alt="" width="50"
+                    height="50">
+                  {{result.Product_name}}
                   <span class="tags" *ngFor="let gen of  result?.gen | slice:0:6">{{gen.Product_name}}</span>
+                </li>
               </ul>
             </section>
             <button><i class="flaticon-search"></i></button>
           </form>
         </div>
         <div class="col-md-4">
-          <div class="user-panel">
+          <div class="user-panel" style="display:inline-block;">
             <div class="up-item">
-                
               <div *ngIf="!flag">
-                <li><i class="flaticon-profile"></i><a href="onsignup()">Sign</a> In</li>
+                <li><i class="flaticon-profile"></i><a  [routerLink]="['../onsignup']" routerLinkActive="router-link-active">Sign</a> In</li>
               </div>
               <div *ngIf="flag">
                 <!-- <li><a (click)="myaccount()">Hello</a> &nbsp;{{name}}</li> -->
                 <!-- start -->
                 <nav class="main-navbar1">
                   <div class="container">
-                      <li *ngIf="flag"><i class="flaticon-profile"></i><a href="myprofile()">Hello {{name}}</a>
-                      </li>
+                    <li *ngIf="flag"><i class="flaticon-profile"></i><a [routerLink]="['../myprofile']" routerLinkActive="router-link-active" class="txt">Hello
+                        {{name}}</a>
+                    </li>
                   </div>
                 </nav>
                 <!-- end -->
               </div>
             </div>
             <div class="up-item">
-              <a href="category()" style="color:purple"> Shop</a>
+              <a  [routerLink]="['../category']" routerLinkActive="router-link-active"
+                style=" color:white;font-family: 'Flamenco', cursive;font-weight: bolder;font-size: 17px;"> Shop</a>
             </div>
-            &nbsp;&nbsp;&nbsp;
+            &nbsp;
             <div class="up-item">
               <!-- <div class="shopping-card"> -->
-                <i class="flaticon-bag" style="color:purple"></i>
-                <span style="color:purple">{{total}}</span>
+              <i class="flaticon-bag" style="color:white"></i>
+              <span class="txt"><sup>{{total}}</sup></span>
               <!-- </div> -->
-              <a href="cart()" style="color:purple"> Shopping Cart</a>
+              <a  [routerLink]="['../cart']" routerLinkActive="router-link-active"
+                style=" color:white;font-family: 'Flamenco', cursive;font-weight: bolder;font-size: 17px;"> Shopping
+                Cart</a>
             </div>
             <!-- <a *ngIf="flag" (click)="logout()">logout</a> -->
           </div>
@@ -68,16 +74,14 @@
 <script type="text/javascript">
 
   $(document).on('scroll', function () {
-    if($(this).scrollTop()>1)
-    {
+    if ($(this).scrollTop() > 1) {
       $('header').addClass('sticky');
     }
-    else
-    {
+    else {
       $('header').removeClass('sticky');
     }
   })
-  
+
 </script>
 
 <!-- Header section end -->

@@ -1,26 +1,62 @@
+h1
+{
+  color:white;
+  font-family: 'Flamenco', cursive;
+  font-weight: bolder;
+}
+
 .size
 {
   width: 90%;
 }
 a{
-  color: purple;
+  color:white;
+  font-family: 'Flamenco', cursive;
+  font-weight: bolder;
 }
 li a
 {
-  color:purple;
+  color:white;
+  font-family: 'Flamenco', cursive;
+  font-weight: bolder;
+  font-size: 16px;
 }
 .main-navbar1
 {
   background-color:transparent;
   color: black;
-  position: sticky;
+  /* position: sticky; */
   
 }
+sup
+{
+  color:white;
+  font-family: 'Flamenco', cursive;
+  font-weight: bolder;
+  font-size: 25px;
+}
+.search
+{
+  cursor:pointer;
+  background-color:rgba(0,0,0,.2);
+  width:80%;
+  display: inline-block;
+  font-weight: bolder;
+  font-size:20px;
+  padding:20px;
+  border-bottom:0.5px solid black;
+}
 
+.fix
+{
+  position: fixed;
+}
 li{
   text-decoration: none;
   list-style: none;
-  color: purple;
+  color:white;
+  font-family: 'Flamenco', cursive;
+  font-weight: bolder;
 }
 
 .header-sec{
@@ -34,8 +70,19 @@ header.sticky
 {
   background:rgba(0,0,0,.8);
   color:white;
+  font-family: 'Flamenco', cursive;
+  font-weight: bolder;
+  font-size: 20px;
   line-height: 50px;
   height: 70px;
+}
+
+.txt
+{
+  color:white;
+  font-family: 'Flamenco', cursive;
+  font-weight: bolder;
+  font-size: 16px;
 }
 /* *::after,
 *::before {
@@ -105,3 +152,16 @@ html,
     right: 3.5%
   }
 } */
+
+
+
+.colorchange{
+	animation:  colorchange 1s infinite;
+}
+
+@keyframes colorchange{
+	0%{color: blueviolet;}
+	25%{color:#bf55ec; ;}
+	50%{ color: white; }
+	100%{ color:#bf55ec;  }
+}

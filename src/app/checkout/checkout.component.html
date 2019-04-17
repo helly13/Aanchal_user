@@ -11,39 +11,32 @@
             <div class="col-md-5">
 
 
-                    <mat-radio-group
-                    class="example-radio-group"
-                    [(ngModel)]="add"
-                    name="add"
-
-                  >
-                  <mat-radio-button    class="example-radio-button"
-                  *ngFor="let item of add_arr"
-                  [value]="item"
+              <mat-radio-group class="example-radio-group" [(ngModel)]="add" name="add">
+                <mat-radio-button class="example-radio-button" *ngFor="let item of add_arr" [value]="item"
                   (change)="handleChange(item)">
-                    {{item}}  &nbsp;
-                  </mat-radio-button>
+                  {{item}} &nbsp;
+                </mat-radio-button>
 
-                  </mat-radio-group>
-                               </div>
+              </mat-radio-group>
             </div>
-<br>
+          </div>
+          <br>
 
           <div class="row address-inputs">
             <div class="col-md-12">
-              <input type="text" placeholder="Address" name="address_line" [disabled]="!add_flag"  [(ngModel)]="address_line">
+              <input type="text" placeholder="Address" name="address_line" [disabled]="!add_flag"
+                [(ngModel)]="address_line">
 
               <input type="text" placeholder="Phone no." name="mobile" [disabled]="!add_flag" [(ngModel)]="number">
               <br>
               <mat-form-field>
-                  <mat-select matNativeControl required [disabled]="!add_flag"  [(ngModel)]="city"
-                  name="city">
-                    <mat-option value="Ahmedabad">Ahmedabad</mat-option>
-                    <mat-option value="Surat">Surat</mat-option>
-                    <mat-option value="Rajkot">Rajkot</mat-option>
+                <mat-select matNativeControl required [disabled]="!add_flag" [(ngModel)]="city" name="city">
+                  <mat-option value="Ahmedabad">Ahmedabad</mat-option>
+                  <mat-option value="Surat">Surat</mat-option>
+                  <mat-option value="Rajkot">Rajkot</mat-option>
 
-                  </mat-select>
-                </mat-form-field>
+                </mat-select>
+              </mat-form-field>
             </div>
           </div>
 
@@ -52,8 +45,7 @@
           <ul class="payment-list">
 
             <li>Pay when you get the package</li>
-            <li> <a  class="wishlist-btn point" (click)="onwishclick()">Paytm</a>
-            </li>
+            
           </ul>
           <button class="site-btn submit-order-btn" (click)="oncheckout()">Place Order</button>
         </form>
@@ -64,16 +56,17 @@
           <ul class="product-list">
             <li>
               <div *ngFor="let item of check_out">
-                  <div class="pl-thumb"> <img src="http://localhost:3000/images/Product_img/{{item.Product_image}}" alt=""></div>
-              <h6>{{item.Product_name}}</h6>
+                <div class="pl-thumb"> <img src="http://localhost:3000/images/Product_img/{{item.Product_image}}"
+                    alt=""></div>
+                <h6>{{item.Product_name}}</h6>
 
-              <p>{{item.Color_name}}</p>
-              <p>{{item.Quantity}}</p>
-              <p>{{item.Size_name}}</p>
+                <p>{{item.Color_name}}</p>
+                <p>{{item.Quantity}}</p>
+                <p>{{item.Size_name}}</p>
               </div>
 
             </li>
-                   </ul>
+          </ul>
           <ul class="price-list">
             <li>Total<span>{{total}}</span></li>
             <li>Shipping<span>free</span></li>
@@ -81,6 +74,6 @@
           </ul>
         </div>
       </div>
-</div>
+    </div>
   </div>
 </section>

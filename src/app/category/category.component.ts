@@ -10,6 +10,9 @@ import { color } from '../classes/color_class';
 import { SizeService } from '../size.service';
 import { size } from '../classes/size_class';
 import { StockService } from '../stock.service';
+import { CustomerService } from '../customer.service';
+import { CartService } from '../cart.service';
+import { wishlist } from '../classes/wish_list_class';
 
 export class color_size_id
 {
@@ -37,7 +40,10 @@ export class CategoryComponent implements OnInit {
   i:number;
   j:number;
   k:number;
-  constructor(private cat_ser:CategoryService,private pro_ser:ProductService,private color_ser:ColorService,private size_ser:SizeService,private _router:Router,private stock_ser:StockService) { }
+  Customer_id:number;
+  emil_id:string;
+  flag:boolean;
+  constructor(private cart_ser:CartService,private cust_ser:CustomerService,private cat_ser:CategoryService,private pro_ser:ProductService,private color_ser:ColorService,private size_ser:SizeService,private _router:Router,private stock_ser:StockService) { }
 
 
   onProductDetails(item:product)
@@ -47,6 +53,21 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
     this.selected_color_size_id=new color_size_id([],[]);
+
+    this.emil_id=localStorage.getItem('email_id');
+    console.log(this.emil_id);
+    if(this.emil_id!=null)
+    {
+      this.cust_ser.Cusrtomer_login(this.emil_id).subscribe((data: any) => {
+        this.Customer_id = data[0].Customer_id;
+        this.flag = true;
+      });
+    }
+    else
+    {
+      this.flag=false;
+    }
+
 
     this.cat_ser.getAllCategory().subscribe(
     (data: any[]) => {
@@ -88,6 +109,43 @@ export class CategoryComponent implements OnInit {
       }
     );
   }
+
+
+  onwishclick(item)
+  {
+    if(this.flag==true)
+    {
+
+
+    this.cart_ser.checkWishlistId(new wishlist(item.Product_id,this.Customer_id)).subscribe(
+      (data:any)=>{
+        console.log(data);
+        if(data.length==1)
+        {
+          alert('Product Allready in Your List');
+        }
+        else
+        {
+          this.cart_ser.InsertIntoWishlist(new wishlist(item.Product_id,this.Customer_id)).subscribe(
+            (data:any)=>{
+              console.log(data);
+              alert('Product Added in Your List');
+            }
+          )
+
+
+        }
+      }
+    )
+    console.log(item);
+    }
+    else
+    {
+      this._router.navigate(["onsignup"]);
+    }
+     }
+
+
   onClickColor(item:color)
   {
     if (this.selected_color_size_id.color_id.find(x => x == item.Color_id)) {

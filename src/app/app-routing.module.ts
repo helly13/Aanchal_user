@@ -14,6 +14,10 @@ import { MyaccComponent } from './myacc/myacc.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CategoryComponent } from './category/category.component';
 import { UserAuthgardServiceService } from './user-authgard-service.service';
+import { ContactComponent } from './contact/contact.component';
+import { EmptywishlistComponent } from './emptywishlist/emptywishlist.component';
+import { EmptycartComponent } from './emptycart/emptycart.component';
+import { SupportComponent } from './support/support.component';
 
 const routes: Routes = [
 
@@ -31,7 +35,13 @@ const routes: Routes = [
   {path:"myprofile",component:MyaccComponent},
   {path:"wishlist",component:WishlistComponent},
   {path:"category",component:CategoryComponent},
-  {path:"app",component:AppComponent}
+  {path:"app",component:AppComponent},
+  {path:"contact",component:ContactComponent},
+  {path:"emptywishlist",component:EmptywishlistComponent},
+  {path:"emptycart",component:EmptycartComponent},
+  {path:"support",component:SupportComponent},
+
+
 ];
 
 @NgModule({

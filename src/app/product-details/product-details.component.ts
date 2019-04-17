@@ -44,16 +44,18 @@ export class ProductDetailsComponent implements OnInit {
   size_flag:number=0;
   color_flag:number=0;
   flag:boolean=true;
+  flag1:boolean=true;
   constructor(private cat_ser:CategoryService,private prod_ser:ProductService,private cart_ser:CartService,private stock_ser:StockService,private cust_ser:CustomerService,private _router:Router,private _actroute:ActivatedRoute) { }
 
 
 
   onclickAddCart()
   {
+    this.flag1=true;
     if(this.Selected_size=="" || this.Selected_color=="")
     {
       alert("Please select size & color");
-      this.flag=false;
+      this.flag1=false;
     }
 
     if(this.flag==true)
@@ -77,6 +79,10 @@ export class ProductDetailsComponent implements OnInit {
 
               else
               {
+                if(this.flag1)
+                {
+
+                
                     this.cart_ser.InsertIntoCart(new cart(this.Stock_id,this.Customer_id,this.qty)).subscribe(
             (data:any)=>
             {
@@ -86,7 +92,7 @@ export class ProductDetailsComponent implements OnInit {
           );
 
               }
-
+            }
              }
            )
 

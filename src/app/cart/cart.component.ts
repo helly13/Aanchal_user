@@ -89,13 +89,15 @@ export class CartComponent implements OnInit {
       console.log(data);
             if (data.length >= 1) {
               this.Cart_details = data;
+            
               console.log(this.Cart_details);
               for (this.i = 0; this.i < this.Cart_details.length; this.i++) {
                 this.Total += this.Cart_details[this.i].Product_price*this.Cart_details[this.i].Quantity;
                 this.qty.push(this.Cart_details[this.i].Quantity);
               }
             } else {
-              this.flag = false;
+             // this.flag1 = false;
+              this._router.navigate(['emptycart']);
             }
           });
       });

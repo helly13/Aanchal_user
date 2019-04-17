@@ -8,12 +8,34 @@ import { Router } from '@angular/router';
 import { CustomerService } from '../customer.service';
 import { CartService } from '../cart.service';
 import { wishlist } from '../classes/wish_list_class';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { timer } from "rxjs";
+import { animate,state,style,transition,trigger,keyframes } from "@angular/animations";
 
 declare var $;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  animations: [
+    trigger('move', [
+      state('in', style({ transform: 'translateX(0)' })),
+      transition('void => left', [
+        style({ transform: 'translateX(100%)' }),
+        animate(200)
+      ]),
+      transition('left => void', [
+        animate(200, style({ transform: 'translateX(0)' }))
+      ]),
+      transition('void => right', [
+        style({ transform: 'translateX(-100%)' }),
+        animate(200)
+      ]),
+      transition('right => void', [
+        animate(200, style({ transform: 'translateX(0)' }))
+      ])
+    ])
+  ]
 })
 export class HomeComponent implements OnInit {
 
@@ -26,7 +48,54 @@ export class HomeComponent implements OnInit {
   slideIndex:number = 1;
   emil_id:string;
   name:string;
+  product_list:product[]=[];
+  timespan:any;
   constructor(private cart_ser:CartService,private cat_ser:CategoryService,private prod_ser:ProductService,private cust_ser:CustomerService, private _router:Router) { }
+  public state = 'void';
+  public disableSliderButtons: boolean = false;
+
+
+  private subscribeToData(): void {
+   
+    this.timespan = timer(15000)
+    .subscribe(() => this.refreshData());
+}
+private refreshData(): void {
+
+this.moveRight();
+this.subscribeToData();
+
+}
+
+  imageRotate(arr, reverse) {
+    if (reverse) arr.unshift(arr.pop());
+    else arr.push(arr.shift());
+    return arr;
+  }
+  moveLeft() {
+    if (this.disableSliderButtons) {
+      return;
+    }
+    this.state = 'right';
+    this.imageRotate(this.product_list, true);
+  }
+
+  moveRight() {
+    if (this.disableSliderButtons) {
+      return;
+    }
+    this.state = 'left';
+    this.imageRotate(this.product_list, false);
+  }
+
+  onFinish($event) {
+    this.state = 'void';
+    this.disableSliderButtons = false;
+  }
+
+  onStart($event) {
+    this.disableSliderButtons = true;
+  }
   onSlideShow(img:number)
   {
     console.log(img);
@@ -63,6 +132,7 @@ export class HomeComponent implements OnInit {
           this.cart_ser.InsertIntoWishlist(new wishlist(item.Product_id,this.Customer_id)).subscribe(
             (data:any)=>{
               console.log(data);
+              alert('Product Added in Your List');
             }
           )
 
@@ -86,7 +156,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
+    this.refreshData();
 
+    this.prod_ser.getAllProduct().subscribe(
+      (data:any[])=>
+      {
+        console.log(data);
+        this.product_list=data;
+      }
+    );
     $(document).on('mouseover', '.main .column', function () {
       $(this).addClass('active').siblings().removeClass('active')
     })

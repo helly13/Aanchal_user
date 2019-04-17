@@ -7,26 +7,11 @@
       <div class="content">
         <h1>1</h1>
         <div class="box">
-          <h2>HEllO HELLY</h2>
+          <h2><b>A GOOD OUTFIT</b></h2>
           <p>
-            duhskj
-            dhsaukj
-            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
-            cjsalkxz
-            hdskazxjekldsfx
-            jsdkzxl
-            duhskj
-            dhsaukj
-            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
-            cjsalkxz
-            hdskazxjekldsfx
-            jsdkzxl
-            duhskj
-            dhsaukj
-            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
-            cjsalkxz
-            hdskazxjekldsfx
-            jsdkzxl
+            A Good Outfit is not enough Fashion,
+            And just Fashion is not enough,
+            Living your Fashion is ENOUGH
           </p>
         </div>
       </div>
@@ -36,14 +21,9 @@
       <div class="content">
         <h1>2</h1>
         <div class="box">
-          <h2>HEllO HELLY</h2>
+          <h2><b>Fashion comes from within you</b></h2>
           <p>
-            duhskj
-            dhsaukj
-            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
-            cjsalkxz
-            hdskazxjekldsfx
-            jsdkzxl
+            Let your attire speak for you TRADITION
           </p>
         </div>
       </div>
@@ -53,14 +33,10 @@
       <div class="content">
         <h1>3</h1>
         <div class="box">
-          <h2>HEllO HELLY</h2>
+          <h2><b>Fashion Elegance</b></h2>
           <p>
-            duhskj
-            dhsaukj
-            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
-            cjsalkxz
-            hdskazxjekldsfx
-            jsdkzxl
+            Elegance is not being noticed<br>
+            It's About being remembered and Leave IMPRESSION
           </p>
         </div>
       </div>
@@ -70,14 +46,10 @@
       <div class="content">
         <h1>4</h1>
         <div class="box">
-          <h2>HEllO HELLY</h2>
+          <h2><b>Own style</b></h2>
           <p>
-            duhskj
-            dhsaukj
-            ifalskzdx asdoizxjclk fashuxzjkfhdzxkjhidsalkxz
-            cjsalkxz
-            hdskazxjekldsfx
-            jsdkzxl
+            Create your own Style..<br>
+            Let it be unique for yourself & yet IDENTIFIABLE for others
           </p>
         </div>
       </div>
@@ -161,7 +133,7 @@
 <section class="product-filter-section">
   <div class="container">
     <div class="section-title">
-      <h2>&nbsp;&nbsp;&nbsp;LATEST PRODUCT</h2>
+      <h2>LATEST PRODUCT</h2>
     </div>
   </div>
 </section>
@@ -245,30 +217,51 @@
 <!-- Product filter section end -->
 
 
-	<!-- letest product section end -->
+  <!-- letest product section end -->
+  
+
   <section class="top-letest-product-section">
       <div class="container">
         <div class="section-title">
           <h2>LATEST PRODUCTS</h2>
         </div>
-        <div class="product-slider owl-carousel">
-          <div class="product-item" *ngFor="let item of New_Product_list">
-            <div class="pi-pic">
-              <img src="http://localhost:3000/images/Product_img/{{
-                item.Product_image
-              }}" alt="">
-              <div class="pi-links">
-                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-              </div>
-            </div>
-            <div class="pi-text">
-              <h6>$35,00</h6>
-              <p>Flamboyant Pink Top </p>
-            </div>
-          </div>
-          
-                </div>
       </div>
-    </section>
+  </section>
+
+
+  <div id="container">
+      <div class="overlay-left"></div>
+      <div class="overlay-right"></div>
+      <div class="row" style="height: 500px;">
+        <div class="col-md-1"></div>
+      <div id="grid" style="width: 85%;height: 400px;" class="image-cropper">
+        <mat-card *ngFor="let item of product_list; let i = index"  >
+            
+        <img width="300px;" height="80%" src="http://localhost:3000/images/Product_img/{{item.Product_image}}" [@move]="state" (@move.done)="onFinish($event)" (@move.start)="onStart($event)" [attr.class]="i" alt="" />
+        
+        
+        <div class="product-item">
+            
+        <div class="pi-links point">
+            <h3 style="float: left;">{{item.Product_name}}</h3>     
+            <a class="wishlist-btn" (click)="onwishclick(item)"><i class="flaticon-heart"></i></a>
+            &nbsp;
+            <a class="add-card" (click)="onProductDetails(item)"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+        </div>
+      </div>
+        
+        </mat-card>
+
+      </div>
+    </div>
+      <div>
+        <a id="slider-buttons-left" (click)="moveLeft()">&#10094;</a>
+        <a id="slider-buttons-right" (click)="moveRight()">&#10095;</a>
+      </div>
+    </div>
+
+
+
+
+
   

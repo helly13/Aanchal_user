@@ -14,14 +14,33 @@ export class TmphellComponent implements OnInit {
   constructor(private prod_ser:ProductService, private _router:Router) { }
 
   ngOnInit() {
-    $(document).on('mouseover', '.main .column', function () {
-      $(this).addClass('active').siblings().removeClass('active')
-    })
+    // $(document).on('mouseover', '.main .column', function () {
+    //   $(this).addClass('active').siblings().removeClass('active')
+    // })
+
+
+  //   $('.owl-carousel').owlCarousel({
+  //     loop:true,
+  //     margin:10,
+  //     nav:true,
+  //     responsive:{
+  //         0:{
+  //             items:1
+  //         },
+  //         600:{
+  //             items:3
+  //         },
+  //         1000:{
+  //             items:5
+  //         }
+  //     }
+  // })
   
     this.prod_ser.getAllProduct( ).subscribe(
       (data:any[])=>
       {
         this.New_Product_list=data;
+        console.log(this.New_Product_list);
       }
     );
 

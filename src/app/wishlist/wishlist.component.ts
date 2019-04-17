@@ -53,7 +53,8 @@ Product_arr:product[]=[];
         this.cart_ser.removeFromWishlist(this.id).subscribe(
           (data:any)=>{
             console.log(data);
-            this._router.navigate(['']);
+            //this._router.navigate(['']);
+            this.ngOnInit();
 
           }
         )
@@ -72,19 +73,29 @@ Product_arr:product[]=[];
         this.cart_ser.getWishlistByCustomerId(this.Customer_id).subscribe(
           (data:any)=>{
             console.log(data);
-            for(this.i=0;this.i<data.length;this.i++)
+            if(data.length>=1)
             {
-                this.Product_id_arr.push(data[this.i].Fk_Product_id);
-                this.prod_ser.getProductById(data[this.i].Fk_Product_id).subscribe(
-                      (data:product[])=>
-                       {
-                         console.log(data);
-                         this.Product_arr.push(data[0]);
-                        //console.log(this.Product_arr);
-                   }
-                );
+              for(this.i=0;this.i<data.length;this.i++)
+              {
+                  this.Product_id_arr.push(data[this.i].Fk_Product_id);
+                  this.prod_ser.getProductById(data[this.i].Fk_Product_id).subscribe(
+                        (data:product[])=>
+                         {
+                           console.log(data);
+                           this.Product_arr.push(data[0]);
+                          //console.log(this.Product_arr);
+                     }
+                     );
             }
           }
+            else
+            {
+              this._router.navigate(['emptywishlist']);
+            }
+           
+               
+            }
+          
         )
 
       }

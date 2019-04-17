@@ -9,8 +9,7 @@
 /*----------------------------------------*/
 /* Template default CSS
 /*----------------------------------------*/
-
-html,
+ html,
 body {
 	height: 100%;
 	font-family: 'Josefin Sans', sans-serif;
@@ -1420,12 +1419,12 @@ ol {
 	background: #6f91ff;
 }
 
-.fw-color-choose label.cs-yollow {
-	background: #6f91ff;
+.fw-color-choose label.cs-yellow {
+	background: #FFFF00;
 }
 
 .fw-color-choose label.cs-green {
-	background: #8fc99c;
+	background: #006400;
 }
 
 .fw-color-choose label.cs-purple {
@@ -1434,6 +1433,13 @@ ol {
 
 .fw-color-choose label.cs-blue {
 	background: #9ee7f4;
+}
+.fw-color-choose label.cs-white {
+	background: #ffffff;
+	border:1px solid black;
+}
+.fw-color-choose label.cs-marun {
+	background: #800000;
 }
 
 .fw-color-choose label span {
@@ -1457,6 +1463,22 @@ ol {
 
 .fw-color-choose input[type=radio]:checked+label span {
 	color: #b09d81;
+}
+
+.fw-color-choose input[type=checkbox] {
+	visibility: hidden;
+	position: absolute;
+}
+
+.fw-color-choose input[type=checkbox]:checked+label {
+	-webkit-box-shadow: 0 0 0 2px #f51167;
+	box-shadow: 0 0 0 2px #f51167;
+	border:2px solid black;
+}
+
+.fw-color-choose input[type=checkbox]:checked+label span {
+	color: #b09d81;
+	border:2px solid black;
 }
 
 .fw-size-choose .sc-item {
@@ -2429,4 +2451,4 @@ ol {
 	.social-links a span {
 		display: none;
 	}
-}
+} 

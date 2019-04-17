@@ -46,6 +46,10 @@ import { SearchComponent } from './search/search.component';
 import { Home1Component } from './home1/home1.component';
 import { TmphellComponent } from './tmphell/tmphell.component';
 import { NgImageSliderComponent } from "ng-image-slider";
+import { EmptycartComponent } from './emptycart/emptycart.component';
+import { EmptywishlistComponent } from './emptywishlist/emptywishlist.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { SupportComponent } from './support/support.component';
 
 
 @NgModule({
@@ -75,7 +79,11 @@ import { NgImageSliderComponent } from "ng-image-slider";
     ContactComponent,
     SearchComponent,
     Home1Component,
-    TmphellComponent
+    TmphellComponent,
+    EmptycartComponent,
+    EmptywishlistComponent,
+    NotfoundComponent,
+    SupportComponent
 
   ],
   imports: [

@@ -11,6 +11,8 @@
       </div>
       <div class="col-lg-6 product-details">
         <h2 class="p-title">{{Product_name}}</h2>
+        <h4>{{Product_desc}}</h4>
+        <br>
         <h3 class="p-price">{{Product_price}}</h3>
         <h4 class="p-stock">Available: <span>In Stock</span></h4>
         <div class="fw-size-choose">
@@ -35,37 +37,19 @@
         <div *ngIf=!flag>
           <a href="onsignup()" class="site-btn">ADD TO CART</a>
         </div>
-        <div *ngIf=flag>
+        <div *ngIf=flag>  
           <a (click)="onclickAddCart()" class="site-btn">ADD TO CART</a>
         </div>
 
-        <div id="accordion" class="accordion-area">
-          <div class="panel">
-            <div class="panel-header" id="headingOne">
-              <button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
-                aria-controls="collapse1">information</button>
-            </div>
-            <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="panel-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus
-                  sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non
-                  scelerisque nulla euismod nec.</p>
-                <p>Approx length 66cm/26" (Based on a UK size 8 sample)</p>
-                <p>Mixed fibres</p>
-                <p>The Model wears a UK size 8/ EU size 36/ US size 4 and her height is 5'8"</p>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="social-sharing">
-          <a href=""><i class="fa fa-google-plus"></i></a>
-          <a href=""><i class="fa fa-pinterest"></i></a>
-          <a href=""><i class="fa fa-facebook"></i></a>
-          <a href=""><i class="fa fa-twitter"></i></a>
-          <a href=""><i class="fa fa-youtube"></i></a>
+          <a href="https://www.justdial.com/Ahmedabad/Aanchal-Creation-Near-Sunset-Row-House-Opposite-Navneet-House-Gurukul-Road/079PK000584_BZDET"><i class="fa fa-google-plus"></i></a>
+          <a href="https://www.facebook.com/aanchalgurukul"><i class="fa fa-facebook"></i></a>
+          <a href="https://www.instagram.com/aanchal_gurukul/"><i class="fa fa-instagram"></i></a>
         </div>
       </div>
     </div>
   </div>
 </section>
 <!-- product section end -->
+
+
